@@ -758,6 +758,12 @@ table#about td {
     margin-left: 20px;
     font-size: 18px;
     font-weight: bold;
+    cursor: default;
+    text-decoration: none;
+}
+
+.work-title:hover {
+    color: #00aeef !important;
 }
 
 .work-description {

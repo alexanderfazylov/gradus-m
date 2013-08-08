@@ -5,5 +5,5 @@ return array (
   'tablePrefix' => 'gr_',
   'modelPath' => 'application.models',
   'baseClass' => 'CActiveRecord',
-  'buildRelations' => '0',
+  'buildRelations' => '1',
 );

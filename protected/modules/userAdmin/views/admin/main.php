@@ -1,32 +1,3 @@
-<h1>Лого</h1>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fileuploader.js"></script>
-<div class="uploded_file">
-    <div class="">
-        <div id="download_file">
-            <noscript>
-                <p>Включите JavaScript чтобы испльзовать file uploader.</p>
-            </noscript>
-        </div>
-    </div>
-</div>
-<div class="anchor"></div>
-
-<script>
-    var uploader = new qq.FileUploader({
-        element: document.getElementById('download_file'),
-        multiple: false,
-        action: '/userAdmin/admin/downloadFile?type=1',
-        debug: false,
-        onSubmit: function(id, fileName){
-            //
-        },
-        onComplete: function(id, fileName, responseText)
-        {
-           //
-        }
-    });
-</script>
-
 <h1>Контакты</h1>
 <form id="user_data" class="classic_form">
     <?php foreach ($contacts as $attribute => $val): ?>
@@ -60,4 +31,3 @@
 </script>
 <div class="anchor"></div>
 
-<h1>Услуги компании</h1>

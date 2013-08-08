@@ -15,6 +15,7 @@
     <div class="content">
         <?php echo $content; ?>
     </div>
+    <div class="push"></div>
 </div>
 </body>
 </html>

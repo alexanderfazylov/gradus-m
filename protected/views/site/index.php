@@ -43,35 +43,35 @@
       <tr>
         <td width="138">
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-design-and-calculations.png" />
-          <a href="#">Проектирование<br/>и расчеты</a>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#design">Проектирование<br/>и расчеты</a>
         </td>
         <td width="126">
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-equipment-selection.png" />
-          <a href="">Подбор<br/>оборудования</a>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#equipment">Подбор<br/>оборудования</a>
         </td>
         <td width="134">
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-heating-and-water-supply-installation.png" />
-          <a href="">Монтаж систем<br/>отопления<br/>и водоснабжения</a>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#montage">Монтаж систем<br/>отопления<br/>и водоснабжения</a>
         </td>
         <td width="129">
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-automated-control-systems.png" />
-          <a href="">Автоматизация<br/>системы<br/>управления</a>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#aius">Автоматизация<br/>системы<br/>управления</a>
         </td>
         <td width="90">
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-heated-floor-installation.png" />
-          <a href="">Монтаж<br/>теплого<br/>пола</a>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#automation">Монтаж<br/>теплого<br/>пола</a>
         </td>
         <td width="131">
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-drainage-installation.png" />
-          <a href="">Монтаж<br/>водоотведения</a>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#sanitation">Монтаж<br/>водоотведения</a>
         </td>
         <td width="109">
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-sanitary-installation.png" />
-          <a href="">Установка<br/>сантехники</a>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#engineers">Установка<br/>сантехники</a>
         </td>
         <td width="83">
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-ventilation.png" />
-          <a href="">Вентиляция</a>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#ventilation">Вентиляция</a>
         </td>
       </tr>
     </table>

@@ -8,6 +8,11 @@ body, html {
   height: 100%;
 }
 
+hr {
+  float: none;
+  clear: both;
+}
+
 a {
   color: #333333;
 }
@@ -62,41 +67,51 @@ li {
     display: block;
     padding: 5px;
   }
-  span{
+  span {
     display: inline-block;
-    min-width:150px;
+    min-width: 150px;
   }
-  input[type="submit"]{
-    margin-left:160px;
+  input[type="submit"] {
+    margin-left: 160px;
   }
-}
-h1{
-  font-size:20px;
-  font-weight:normal;
-  color: red;
-  margin:20px 0;
 }
 
-.qq-upload-button{
-  height: 15px!important;
+h1 {
+  font-size: 22px;
+  font-weight: normal;
+  color: red;
+  margin: 20px 0;
 }
+
+h2 {
+  font-size: 18px;
+  font-weight: normal;
+  color: blue;
+  margin: 10px 0;
+}
+
+.qq-upload-button {
+  height: 15px !important;
+}
+
 input[type="password"],
 input[type="text"],
-input[type="email"]
-{
-  font-size:14px;
-  margin:0px;
-  width:70%;
-  box-sizing:border-box;
-  border:1px solid #d9d9d9;
-  padding:0px;
-  color:#3b3b3b;
-  line-height:27px;
+input[type="email"] {
+  font-size: 14px;
+  margin: 0px;
+  width: 70%;
+  box-sizing: border-box;
+  border: 1px solid #d9d9d9;
+  padding: 0px;
+  color: #3b3b3b;
+  line-height: 27px;
   height: 27px;
   text-indent: 5px;
 }
-.qq-upload-button, input[type='submit']{
-  float:left;
+
+.qq-upload-button, input[type='submit'] {
+  margin-top: 10px;
+  float: left;
   font-size: 20px;
   height: 35px;
   font-size: 12px;
@@ -127,18 +142,19 @@ input[type="email"]
   -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: pointer;
-  font-family:  arial, sans-serif;
+  font-family: arial, sans-serif;
   font-weight: normal;
   text-decoration: none;
-  height:26px;
+  height: 26px;
   vertical-align: middle;
 }
-.qq-upload-button-hover, input[type='submit']:hover{
+
+.qq-upload-button-hover, input[type='submit']:hover {
   background-color: #fcfcfc !important;
   *background-color: #e8e8e8 !important;
   background-image: -ms-linear-gradient(top, #fcfcfc, #e8e8e8);
@@ -152,7 +168,8 @@ input[type="email"]
   filter: progid:dximagetransform.microsoft.gradient(enabled=false);
   text-decoration: none;
 }
-.qq-upload-button-focus, input[type='submit']:active{
+
+.qq-upload-button-focus, input[type='submit']:active {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -162,4 +179,91 @@ input[type="email"]
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   border-color: #a4a7ac #d2d3d4 #e1e1e1;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.vacansy {
+  position: relative;
+  border: 1px dotted #999;
+  padding: 5px;
+  font-weight: bold;
+  margin: 10px;
+  background: #ececec;
+}
+
+.delete {
+  color: red;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.delete:hover {
+  text-decoration: none;
+}
+
+.opportunitys {
+  margin-top: 20px;
+  .opp:nth-child(1) {
+    width: 50%;
+    position: relative;
+    float: left;
+  }
+  .opp:nth-child(2) {
+    width: 50%;
+    float: right;
+  }
+  .opp  textarea {
+    display: block;
+    width: 90%;
+  }
+  .opp label {
+    display: block;
+  }
+  .opp span {
+    min-width: 150px;
+  }
+}
+
+ul.deafault {
+  width: 90%;
+  margin-top: 20px;
+}
+
+ul.deafault li {
+  list-style: disc;
+  font-weight: normal;
+  margin-left: 20px;
+  position: relative;
+  .close {
+    background: url('../img/close_delete.gif');
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+ul.deafault li:hover .close {
+  opacity: 1;
+}
+
+.tag_list {
+
+  padding: 4px;
+  li {
+    display: inline-block;
+    background: #79B4DC;
+
+  }
+}
+
+.push {
+  height: 200px;
+  float: none;
+  clear: both;
 }

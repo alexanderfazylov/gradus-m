@@ -39,8 +39,67 @@ class AdminController extends Controller
 
     public function actionAbout()
     {
-        $model = array();
-        $this->render('about', array('model' => $model));
+
+        $vacancys = Vacancy::model()->findAll();
+        $this->render('about', array('vacancys' => $vacancys));
+    }
+
+    public function actionUpdateVacancy($id)
+    {
+        if (isset($_POST['Vacancy'])) {
+            $vacancy = Vacancy::model()->findByPk($id);
+            $vacancy->attributes = $_POST['Vacancy'];
+            if ($vacancy->save()) {
+                echo json_encode(array('status' => 'succses'));
+            }
+        }
+
+    }
+
+    public function actionAddCharge()
+    {
+        if (isset($_POST['Charge'])) {
+
+            $charge = new Charge();
+            $charge->attributes = $_POST['Charge'];
+            if ($charge->save()) {
+                echo json_encode(array('status' => 'succses'));
+            }
+        }
+    }
+
+    public function actionAddRequirements()
+    {
+
+        if (isset($_POST['Requirements'])) {
+
+            $requirements = new Requirements();
+            $requirements->attributes = $_POST['Requirements'];
+
+            if ($requirements->save()) {
+                echo json_encode(array('status' => 'succses'));
+            }
+        }
+    }
+
+    public function actionDeleteRequirements($id)
+    {
+        Requirements::model()->deleteByPk($id);
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionDeleteCharge($id)
+    {
+        Charge::model()->deleteByPk($id);
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionDeleteVacancy($id)
+    {
+        Charge::model()->deleteAllByAttributes(array('vacancy_id' => $id));
+        Requirements::model()->deleteAllByAttributes(array('vacancy_id' => $id));
+        Vacancy::model()->deleteByPk($id);
+        echo json_encode(array('status' => 'succses'));
     }
 
     public function actionProducts()
@@ -51,17 +110,56 @@ class AdminController extends Controller
 
     public function actionWorks()
     {
-        $model = array();
-        $this->render('works', array('model' => $model));
+        $tags = Tag::model()->findAll();
+        $portfolios = Portfolio::model()->findAll();
+
+        $this->render('works', array('tags' => $tags, 'portfolios' => $portfolios));
+    }
+
+    public function actionCreateVacancy()
+    {
+        if (isset($_POST['Vacancy'])) {
+            $model = new Vacancy();
+            $model->attributes = $_POST['Vacancy'];
+            if ($model->save()) {
+                echo json_encode(array('status' => 'succses'));
+            }
+        }
+    }
+
+    public function actionSaveTag()
+    {
+        if (isset($_POST['Tag'])) {
+            $model = new Tag();
+            $model->attributes = $_POST['Tag'];
+            if ($model->save()) {
+                echo json_encode(array('status' => 'succses'));
+            } else {
+                echo json_encode(array('status' => 'error', 'text' => $model->getErrors()));
+            }
+        }
+    }
+
+    public function actionSavePortfolio()
+    {
+        if (isset($_POST['Portfolio'])) {
+            $model = new Portfolio();
+            $model->attributes = $_POST['Portfolio'];
+            if ($model->save()) {
+                echo json_encode(array('status' => 'succses'));
+            } else {
+                echo json_encode(array('status' => 'error', 'text' => $model->getErrors()));
+            }
+        }
     }
 
 
     public function actionDownloadFile($type)
     {
         if ($type = 1) {
-            $logo = 1;//true
+            $logo = 1; //true
         } else {
-            $logo = 0;//false
+            $logo = 0; //false
         }
 
         $uf = DIRECTORY_SEPARATOR;

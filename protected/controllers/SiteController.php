@@ -32,9 +32,14 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
+        $vacancys = Vacancy::model()->findAll(
+            array('order' => 't.order ASC,`order` ASC')
+        );
 
-        MyHelper::render($this, '/site/about', array('' => ''), 'О компании');
+        MyHelper::render($this, '/site/about', array('vacancys' => $vacancys), 'О компании');
     }
+
+
 
     public function actionEquipment()
     {
