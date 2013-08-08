@@ -1,8 +1,10 @@
 gradus-m
 ========
 
-gradus-m
+Инструкция установки
 
-1) add file protected/config/database.php
-2) add path /assets
-3) add path /uploads
+1) Добавить файл в protected/config/database.php (database.exemple.php)
+ 
+2) Добавить папку /assets в корень,с правами на запись.
+ 
+3) Добавить папку /uploads в корень, с правами на запись.
