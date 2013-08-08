@@ -1,10 +1,10 @@
 /protected/config/database.php
 
-./uploads
+/uploads
 
 
-./nbproject
+/nbproject
 
-./assets
+/assets
 
-./.idea
+/.idea
