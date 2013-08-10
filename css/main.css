@@ -345,6 +345,7 @@ table#full-menu a {
     margin: 0;
     margin-bottom: 5px;
     font-weight: normal;
+    text-transform: lowercase;
 }
 
 table#full-menu a.full-menu-section {
@@ -760,6 +761,7 @@ table#about td {
     font-weight: bold;
     cursor: default;
     text-decoration: none;
+    color: #00aeef !important;
 }
 
 .work-title:hover {

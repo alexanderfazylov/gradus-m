@@ -52,7 +52,9 @@ class Tag extends CActiveRecord
     {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
-        return array();
+        return array(
+            'portfolio' => array(self::HAS_MANY, 'Portfolio', 'tag_id'),
+        );
     }
 
     /**

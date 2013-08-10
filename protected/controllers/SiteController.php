@@ -40,7 +40,6 @@ class SiteController extends Controller
     }
 
 
-
     public function actionEquipment()
     {
 
@@ -63,7 +62,9 @@ class SiteController extends Controller
     public function actionWorks()
     {
 
-        MyHelper::render($this, '/site/works', array(), 'Работы');
+        $tags = Tag::model()->findAll();
+
+        MyHelper::render($this, '/site/works', array('tags' => $tags), 'Работы');
     }
 
     public function actionWork()

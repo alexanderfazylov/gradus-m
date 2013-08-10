@@ -62,10 +62,11 @@ li {
 }
 
 .classic_form {
-
+  position: relative;
   label {
     display: block;
     padding: 5px;
+    position: relative;
   }
   span {
     display: inline-block;
@@ -254,11 +255,12 @@ ul.deafault li:hover .close {
 
 .tag_list {
 
-  padding: 4px;
+  padding-left: 40px;
   li {
-    display: inline-block;
-    background: #79B4DC;
-
+    list-style: circle;
+    font-size: 20px;
+    line-height: 20px;
+    position: relative;
   }
 }
 
@@ -266,4 +268,30 @@ ul.deafault li:hover .close {
   height: 200px;
   float: none;
   clear: both;
+}
+
+.map_hint {
+  padding-left: 150px;
+}
+
+.zagr_img {
+  display: inline-block;
+  width: 150px;
+}
+
+.download_picter {
+  display: inline-block;
+  padding-top: 50px;
+}
+
+.block_port {
+  position: relative;
+}
+
+.delete_tag {
+  background: url('../img/close_delete.gif');
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  cursor: pointer;
 }

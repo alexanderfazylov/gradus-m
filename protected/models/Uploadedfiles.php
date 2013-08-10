@@ -17,7 +17,7 @@ class Uploadedfiles extends CActiveRecord
     {
         return array(
             array('name, orig_name,ext, size', 'required'),
-            array('name, orig_name, logo', 'length', 'max' => 255),
+            array('name, orig_name', 'length', 'max' => 255),
             array('id, name, orig_name, size, ext', 'safe', 'on' => 'search'),
         );
     }
@@ -25,7 +25,6 @@ class Uploadedfiles extends CActiveRecord
     public function relations()
     {
         return array(
-            'filetopost' => array(self::HAS_MANY, 'Filetopost', 'file_id'),
         );
     }
 
@@ -36,8 +35,7 @@ class Uploadedfiles extends CActiveRecord
             'name' => 'Name',
             'orig_name' => 'Название',
             'size' => 'Объем, Кб',
-            'ext' => 'Формат',
-            'logo' => 'logo'
+            'ext' => 'Формат'
         );
     }
 

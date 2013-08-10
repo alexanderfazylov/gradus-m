@@ -1,5 +1,6 @@
 <div class="about">
     <div class="section">
+        <a name="about"></a>
         <h2>О компании</h2>
 
         <p>Компания ООО «Теплосинтез» Основана в 2006 году году.</p>
@@ -74,7 +75,7 @@
             производим дальнейшее обслуживание.</p>
     </div>
     <div class="section">
-
+        <a name="vacancy"></a>
         <h2>Вакансии</h2>
 
         <table class="vacancies">
@@ -110,10 +111,7 @@
         <h2><a name="contacts"></a>Контакты</h2>
 
         <div class="map">
-            <script type="text/javascript" charset="utf-8"
-                    src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=G3-MUyKrtcnjN7iGLDBYSVAie7esz5px&height=450">
-
-            </script>
+            <?php echo $this->contacts['map']; ?>
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/banner-shadow.png"/>
         </div>
 

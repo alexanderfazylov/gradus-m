@@ -5,11 +5,21 @@
         <span>
         <?php echo $attribute; ?>
             </span>
-            <input type="text" name="Contacts[<?php echo $attribute; ?>]" value="<?php echo $val; ?>">
+            <?php if($attribute == 'map'):?>
+                <textarea style="width: 500px;height: 100px;"  name="Contacts[<?php echo $attribute; ?>]" ><?php echo $val; ?></textarea>
+                <span class="map_hint" >
+                    Воспользуйтесь <a href="http://api.yandex.ru/maps/tools/constructor/">Конструктором карт</a>, что бы получить необходимый код.
+                    Не забудь изменить размер окна карты в скрипет(ширина высота)
+                </span>
+             <?php else:?>
+                <input type="text" name="Contacts[<?php echo $attribute; ?>]" value="<?php echo $val; ?>">
+            <?php endif;?>
         </label>
     <?php endforeach; ?>
     <input type="submit" value="Изменить" onclick="updateUser();return false">
 </form>
+<div class="anchor"></div>
+
 <script>
     function updateUser() {
         $.ajax({

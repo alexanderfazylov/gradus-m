@@ -153,13 +153,41 @@ class AdminController extends Controller
         }
     }
 
-
-    public function actionDownloadFile($type)
+    public function actionUpdatePortfolio($id)
     {
-        if ($type = 1) {
-            $logo = 1; //true
-        } else {
-            $logo = 0; //false
+        if (isset($_POST['Portfolio'])) {
+            $model = Portfolio::model()->findByPk($id);
+            $model->attributes = $_POST['Portfolio'];
+            if ($model->save()) {
+                echo json_encode(array('status' => 'succses'));
+            } else {
+                echo json_encode(array('status' => 'error', 'text' => $model->getErrors()));
+            }
+        }
+    }
+
+    public function actionDeletePortfolio($id)
+    {
+        Portfolio::model()->deleteByPk($id);
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionDeleteTag($id)
+    {
+        $portfolios = Portfolio::model()->findAllByAttributes(array('tag_id' => $id));
+        foreach ($portfolios as $portfolio) {
+            $portfolio->tag_id = 0;
+            $portfolio->save();
+        }
+        Tag::model()->deleteByPk($id);
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionDownloadFile($type, $id)
+    {
+        if ($type == '1') {
+            //Portfolio
+            $model = Portfolio::model()->findByPk($id);
         }
 
         $uf = DIRECTORY_SEPARATOR;
@@ -168,7 +196,7 @@ class AdminController extends Controller
             mkdir($basePath);
 
         $allowedExtensions = $array = array("png", "jpg", "jpeg", "gif");
-        $sizeLimit = 50 * 1024 * 1024;
+        $sizeLimit = 5 * 1024 * 1024;
         $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
         $result = $uploader->handleUpload($basePath);
 
@@ -183,7 +211,6 @@ class AdminController extends Controller
             'orig_name' => $result['user_filename'],
             'size' => $result['size'],
             'ext' => $result['ext'],
-            'logo' => $logo
         );
 
         $Uploadedfiles = new Uploadedfiles();
@@ -193,17 +220,29 @@ class AdminController extends Controller
             Yii::app()->end();
         }
 
+        $img = Yii::app()->ih
+            ->load($basePath . $Uploadedfiles->name);
+
+        if ($img->width > 140)
+            $img->resize(140, 100)
+                ->save($basePath . $Uploadedfiles->name);
+        if ($img->height > 100)
+            $img->resize(140, 100)
+                ->save($basePath . $Uploadedfiles->name);
+
+
         $result['file_id'] = $Uploadedfiles->id;
-
-//        $model = new Logo();
-//        $model->uploads_id = $Uploadedfiles->id;
-//        if (!$model->save()) {
-//            echo json_encode(array('status' => 'fail', 'error' => var_dump($model->getErrors())));
-//            Yii::app()->end();
-//        }
-
+        $model->file_id = $Uploadedfiles->id;
+        $model->save(false);
         echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 
     }
 
+    public function actionDeleteFilePortfolio($id)
+    {
+        $model = Portfolio::model()->findByPk($id);
+        $model->file_id = '';
+        $model->save(false);
+        echo json_encode(array('status' => 'succses'));
+    }
 }
