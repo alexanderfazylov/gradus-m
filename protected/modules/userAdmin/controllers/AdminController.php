@@ -104,8 +104,50 @@ class AdminController extends Controller
 
     public function actionProducts()
     {
-        $model = array();
-        $this->render('products', array('model' => $model));
+        $pgs = ProductsGroup::model()->findAll();
+        $equipments = Equipment::model()->findAll();
+
+        $this->render('products', array('pgs' => $pgs, 'equipments' => $equipments));
+    }
+
+    public function actionSaveProductsGroup()
+    {
+        if (isset($_POST['ProductsGroup'])) {
+            $model = new ProductsGroup();
+            $model->attributes = $_POST['ProductsGroup'];
+            if ($model->save()) {
+                echo json_encode(array('status' => 'succses'));
+            }
+        }
+    }
+
+    public function actionDeletePg($id)
+    {
+        ProductsGroup::model()->deleteByPk($id);
+
+        $models = Equipment::model()->findAllByAttributes(array('pg_id' => $id));
+
+        foreach ($models as $model) {
+            $model->pg_id = 0;
+            $model->save(false);
+        }
+
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionSaveEquipment($id)
+    {
+        if (isset($_POST['Equipment'])) {
+            if (empty($id)) {
+                $model = new Equipment();
+            } else {
+                $model = Equipment::model()->findByPk($id);
+            }
+            $model->attributes = $_POST['Equipment'];
+            if ($model->save()) {
+                echo json_encode(array('status' => 'succses'));
+            }
+        }
     }
 
     public function actionWorks()
@@ -183,12 +225,34 @@ class AdminController extends Controller
         echo json_encode(array('status' => 'succses'));
     }
 
+    public function actionDeleteFileEquipment($id)
+    {
+        $model = Equipment::model()->findByPk($id);
+        $model->file_id = 0;
+        $model->save(false);
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionDeleteEquipment($id)
+    {
+        Equipment::model()->deleteByPk($id);
+        echo json_encode(array('status' => 'succses'));
+    }
+
     public function actionDownloadFile($type, $id)
     {
         if ($type == '1') {
             //Portfolio
             $model = Portfolio::model()->findByPk($id);
+            $width = '140';
+            $height = '100';
+        } elseif ($type == '2') {
+            //Equipment
+            $width = '140';
+            $height = '140';
+            $model = Equipment::model()->findByPk($id);
         }
+
 
         $uf = DIRECTORY_SEPARATOR;
         $basePath = Yii::app()->basePath . "{$uf}..{$uf}uploads{$uf}";
@@ -223,11 +287,11 @@ class AdminController extends Controller
         $img = Yii::app()->ih
             ->load($basePath . $Uploadedfiles->name);
 
-        if ($img->width > 140)
-            $img->resize(140, 100)
+        if ($img->width > $width)
+            $img->resize($width, $height)
                 ->save($basePath . $Uploadedfiles->name);
-        if ($img->height > 100)
-            $img->resize(140, 100)
+        if ($img->height > $height)
+            $img->resize($width, $height)
                 ->save($basePath . $Uploadedfiles->name);
 
 
@@ -244,5 +308,10 @@ class AdminController extends Controller
         $model->file_id = '';
         $model->save(false);
         echo json_encode(array('status' => 'succses'));
+    }
+    public function actionInfo($id)
+    {
+
+        $this->render('info', array());
     }
 }

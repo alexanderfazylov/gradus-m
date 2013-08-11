@@ -1,149 +1,43 @@
 <div class="section equipment">
-  <h2>Продукция</h2>
-  <div class="equipment-box">
-    <h4>Автоматика котлов</h4>
-    <ul class="equipment-list">
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment1.png" />
-        <a href="production/">Vaillant</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment2.png" />
-        <a href="">Buderus</a>
-      </li>
-      <li class="lastchild">
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment3.png" />
-        <a href="">Viessmann</a>
-      </li>
-    </ul>
-    <div class="anchor"></div>
-  </div>
-  <div class="equipment-box">
-    <h4>Котлы настенные</h4>
-    <span class="more-equipment">еще 3 производителя</span>
-    <ul class="equipment-list">
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment4.png" />
-        <a href="">Vaillant</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment5.png" />
-        <a href="">Buderus</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment6.png" />
-        <a href="">Viessmann</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment7.png" />
-        <a href="">Vaillant</a>
-      </li>
-      <li class="lastchild">
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment8.png" />
-        <a href="">Vaillant</a>
-      </li>
-    </ul>
-    <div class="anchor"></div>
-  </div>
-  <div class="equipment-box">
-    <h4>Котлы напольные</h4>
-    <ul class="equipment-list">
-      <li class="lastchild">
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment9.png" />
-        <a href="">Vaillant</a>
-      </li>
-    </ul>
-    <div class="anchor"></div>
-  </div>
-  <div class="equipment-box">
-    <h4>Радиаторы отопления</h4>
-    <ul class="equipment-list">
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment10.png" />
-        <a href="">Vaillant</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment11.png" />
-        <a href="">Buderus</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment12.png" />
-        <a href="">Vaillant</a>
-      </li>
-      <li class="lastchild">
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment13.png" />
-        <a href="">Viessmann</a>
-      </li>
-    </ul>
-    <div class="anchor"></div>
-  </div>
-  <div class="equipment-box">
-    <h4>Водонагреватели</h4>
-    <ul class="equipment-list">
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment14.png" />
-        <a href="">Vaillant</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment15.png" />
-        <a href="">Buderus</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment16.png" />
-        <a href="">Vaillant</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment17.png" />
-        <a href="">Viessmann</a>
-      </li>
-      <li class="lastchild">
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment18.png" />
-        <a href="">Vaillant</a>
-      </li>
-    </ul>
-    <div class="anchor"></div>
-  </div>
-  <div class="equipment-box">
-    <h4>Теплые полы</h4>
-    <ul class="equipment-list">
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment19.png" />
-        <a href="">Vaillant</a>
-      </li>
-      <li class="lastchild">
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment20.png" />
-        <a href="">Buderus</a>
-      </li>
-    </ul>
-    <div class="anchor"></div>
-  </div>
-  <div class="equipment-box">
-    <h4>Трубы и фитинги</h4>
-    <ul class="equipment-list">
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment21.png" />
-        <a href="">Vaillant</a>
-      </li>
-      <li>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment22.png" />
-        <a href="">Buderus</a>
-      </li>
-      <li class="lastchild">
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment23.png" />
-        <a href="">Viessmann</a>
-      </li>
-    </ul>
-    <div class="anchor"></div>
-  </div>
-  <div class="equipment-box">
-    <h4>Насосы</h4>
-    <ul class="equipment-list">
-      <li class="lastchild">
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/equipment/equipment24.png" />
-        <a href="">Vaillant</a>
-      </li>
-    </ul>
-    <div class="anchor"></div>
-  </div>
 
+
+    <h2>Продукция</h2>
+
+    <?php foreach ($pgs as $pg): ?>
+        <div class="equipment-box">
+            <a name="<?php echo $pg->name; ?>"></a>
+            <h4><?php echo $pg->name; ?></h4>
+            <?php if (count($pg->equipment) > 5): ?>
+                <span class="more-equipment"
+                      onclick="showEquipment($(this))">еще <?php echo(count($pg->equipment) - 5); ?>
+                    производителя
+            </span>
+            <?php endif; ?>
+            <ul class="equipment-list">
+                <?php $index = 1; ?>
+                <?php foreach ($pg->equipment as $equipment): ?>
+                    <?php if ($index > 5) {
+                        $hide_class = 'hide_class';
+                    } else {
+                        $hide_class = '';
+                    }
+                    ?>
+                    <li class="<?php echo $hide_class; ?>">
+                        <img
+                            src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/<?php echo $equipment->uploadedfiles->name; ?>"/>
+                        <a href="/site/production?id=<?php echo $pg->id ?>#<?php echo $equipment->name; ?>"><?php echo $equipment->name; ?></a>
+                    </li>
+                    <?php $index++; ?>
+                <?php endforeach; ?>
+            </ul>
+            <div class="anchor"></div>
+        </div>
+        <?php $index = 1; ?>
+    <?php endforeach; ?>
 </div>
+<script>
+    function showEquipment(el) {
+        el.siblings('.equipment-list').find('.hide_class').show();
+        el.remove();
+    }
+</script>

@@ -41,14 +41,9 @@
                 <td width="130">
                     <a class="full-menu-section" href="/site/equipment">Продукция</a>
 
-                    <a href="">Автоматика котлов</a>
-                    <a href="">Котлы настенные</a>
-                    <a href="">Котлы напольные</a>
-                    <a href="">Радиаторы отопления</a>
-                    <a href="">Водонагреватели</a>
-                    <a href="">Теплые полы</a>
-                    <a href="">Трубы и фитинги</a>
-                    <a href="">Насосы</a>
+                    <?php foreach ($this->menu['equipment'] as $value): ?>
+                        <a href="<?php echo $value['href']; ?>"><?php echo $value['title']; ?></a>
+                    <?php endforeach; ?>
                 </td>
                 <td width="145">
                     <a class="full-menu-section" href="/site/equipment">Услуги</a>
@@ -58,7 +53,7 @@
                 </td>
                 <td width="90">
                     <a class="full-menu-section" href="/site/works">Работы</a>
-                    <?php foreach ($this->menu['equipment'] as $value): ?>
+                    <?php foreach ($this->menu['works'] as $value): ?>
                         <a href="<?php echo $value['href']; ?>"><?php echo $value['title']; ?></a>
                     <?php endforeach; ?>
                 </td>

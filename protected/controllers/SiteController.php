@@ -42,14 +42,14 @@ class SiteController extends Controller
 
     public function actionEquipment()
     {
-
-        MyHelper::render($this, '/site/equipment', array(), 'Оборудование');
+        $pgs = ProductsGroup::model()->findAll();
+        MyHelper::render($this, '/site/equipment', array('pgs' => $pgs), 'Оборудование');
     }
 
-    public function actionProduction()
+    public function actionProduction($id)
     {
-
-        MyHelper::render($this, '/site/production', array(), 'Оборудование');
+        $pgs = ProductsGroup::model()->findAll();
+        MyHelper::render($this, '/site/production', array('pgs'=>$pgs), 'Оборудование');
     }
 
     public function actionServices()

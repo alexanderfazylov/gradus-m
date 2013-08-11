@@ -27,6 +27,7 @@ class MyHelper
     public static function menu()
     {
         $tags = Tag::model()->findAll();
+        $pgs = ProductsGroup::model()->findAll();
         $menu = array();
 //==
 
@@ -78,9 +79,20 @@ class MyHelper
 
         if (!empty($tags)) {
             foreach ($tags as $tag) {
-                $menu['equipment'][] = array(
+                $menu['works'][] = array(
                     'title' => $tag->text,
                     'href' => '/site/works#' . $tag->tag,
+                );
+            }
+        } else {
+            $menu['works'][] = array();
+        }
+
+        if (!empty($pgs)) {
+            foreach ($pgs as $pg) {
+                $menu['equipment'][] = array(
+                    'title' => $pg->name,
+                    'href' => '/site/equipment#' . $pg->name,
                 );
             }
         } else {
