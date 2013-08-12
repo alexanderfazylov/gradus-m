@@ -345,6 +345,7 @@ table#full-menu a {
     margin: 0;
     margin-bottom: 5px;
     font-weight: normal;
+    text-transform: lowercase;
 }
 
 table#full-menu a.full-menu-section {
@@ -565,6 +566,7 @@ table#about td {
     margin: 0 !important;
     margin-top: 10px !important;
     padding: 0 !important;
+    width: 804px;
 }
 
 .equipment-box {
@@ -621,7 +623,7 @@ table#about td {
     padding-left: 10px;
 }
 
-.equipment-menu li span {
+.equipment-menu li a {
     padding: 9px 10px;
     margin: 0 !important;
     margin-left: -10px !important;
@@ -630,7 +632,7 @@ table#about td {
     text-decoration: underline;
 }
 
-.equipment-menu li:hover span {
+.equipment-menu li.active a {
     background: #f27157;
     color: #fff;
     text-decoration: none;
@@ -638,6 +640,10 @@ table#about td {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+}
+
+.equipment-menu li:hover a {
+    text-decoration: none;
 }
 
 .equipment-content {
@@ -760,6 +766,7 @@ table#about td {
     font-weight: bold;
     cursor: default;
     text-decoration: none;
+    color: #00aeef !important;
 }
 
 .work-title:hover {
@@ -910,4 +917,8 @@ table#about td {
     margin: 0 auto;
     width: 500px;
     border: 1px solid black;
+}
+
+.hide_class {
+    display: none;
 }

@@ -49,9 +49,9 @@ return array(
         'userAdmin',
     ),
     'components' => array(
-//        'ih' => array(
-//            'class' => 'CImageHandler',
-//        ),
+        'ih' => array(
+            'class' => 'CImageHandler',
+        ),
 //        'mailer' => array(
 //            'class' => 'application.extensions.mailer.EMailer',
 //            'pathViews' => 'application.views.email',

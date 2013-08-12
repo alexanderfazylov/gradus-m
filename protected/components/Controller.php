@@ -10,6 +10,7 @@ class Controller extends SBaseController
     public function init()
     {
         $this->contacts = Contacts::contactsHelper();
+        $this->menu = MyHelper::menu();
     }
 
 }

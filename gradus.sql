@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 08 2013 г., 17:13
+-- Время создания: Авг 12 2013 г., 11:03
 -- Версия сервера: 5.5.24-log
 -- Версия PHP: 5.3.13
 
@@ -137,10 +137,10 @@ INSERT INTO `gr_charge` (`id`, `vacancy_id`, `text`) VALUES
 
 CREATE TABLE IF NOT EXISTS `gr_contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+  `name` text,
   `val` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Дамп данных таблицы `gr_contacts`
@@ -153,7 +153,47 @@ INSERT INTO `gr_contacts` (`id`, `name`, `val`) VALUES
 (4, 'tel_handy', '333333'),
 (5, 'email', 'info@gradus-m.ru'),
 (6, 'full_name', 'ООО «ТЕПЛОСИНТЕЗ»'),
-(7, 'coperite', '© 2013 Градус-М');
+(7, 'coperite', '© 2013 Градус-М'),
+(8, 'map', '<script type="text/javascript" charset="utf-8"\r\n                    src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=G3-MUyKrtcnjN7iGLDBYSVAie7esz5px&height=450">\r\n\r\n            </script>');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `gr_equipment`
+--
+
+CREATE TABLE IF NOT EXISTS `gr_equipment` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `pg_id` int(10) DEFAULT '0',
+  `file_id` int(10) DEFAULT '0',
+  `text` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+
+--
+-- Дамп данных таблицы `gr_equipment`
+--
+
+INSERT INTO `gr_equipment` (`id`, `name`, `pg_id`, `file_id`, `text`) VALUES
+(6, 'asdasdasd', 2, 49, '                asdasd<br><br><ul><li>asdasdasdasd</li><li>asdasdasdasd</li><li>asdasdasdasd</li></ul><p><br></p><br><img alt="asdasd" src="http://gradus/uploads/a0d085c4f7a71222896c9c183db1d552.jpg" height="652" align="none" width="1518"><br>'),
+(7, 'asd23442434', 2, 50, NULL),
+(8, '2342342', 2, 33, NULL),
+(9, '23234', 3, 34, NULL),
+(10, '345345', 3, 35, NULL),
+(11, '567567', 3, 36, NULL),
+(12, '567567', 4, 37, NULL),
+(13, '756756', 5, 42, NULL),
+(14, 'yugjgh', 5, 38, NULL),
+(15, '5656uygj', 6, 39, NULL),
+(16, 'ghjghjghjghj', 7, 41, NULL),
+(17, 'ghjghjghjj', 8, 40, NULL),
+(18, '111111111', 2, 48, NULL),
+(19, '22222222', 2, 47, NULL),
+(20, '333333333', 2, 46, NULL),
+(21, '44444444444', 2, 45, NULL),
+(22, '555555555', 2, 44, NULL),
+(23, '666666666', 2, 43, NULL);
 
 -- --------------------------------------------------------
 
@@ -167,15 +207,45 @@ CREATE TABLE IF NOT EXISTS `gr_portfolio` (
   `address` varchar(255) DEFAULT NULL,
   `area` varchar(255) DEFAULT NULL,
   `file_id` int(10) DEFAULT NULL,
+  `tag_id` int(10) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Дамп данных таблицы `gr_portfolio`
 --
 
-INSERT INTO `gr_portfolio` (`id`, `title`, `address`, `area`, `file_id`) VALUES
-(1, 'asdasd', 'asdasd', 'asdasd', NULL);
+INSERT INTO `gr_portfolio` (`id`, `title`, `address`, `area`, `file_id`, `tag_id`) VALUES
+(9, '«Жилой комплекс «Берег»', 'Город Казань, улица Чистопольская', '120 м2, 240 м2, 350 м2', 51, 6),
+(10, '«Жилой комплекс «Суворовский»', 'Город Казань, улица Петербургская', '240 м2', 27, 6),
+(11, 'Дом из Клеенного бруса', 'Город Казань, поселок Троицкий', '180 м2', 28, 7),
+(12, 'Магазин «NEW YORKER»', 'Город Казань, ТЦ «Мега»', '', 29, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `gr_products_group`
+--
+
+CREATE TABLE IF NOT EXISTS `gr_products_group` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Дамп данных таблицы `gr_products_group`
+--
+
+INSERT INTO `gr_products_group` (`id`, `name`) VALUES
+(2, 'Автоматика котлов'),
+(3, 'Котлы настенные'),
+(4, 'Котлы напольные'),
+(5, 'Радиаторы отопления'),
+(6, 'Водонагреватели'),
+(7, 'Теплые полы'),
+(8, 'Трубы и фитинги'),
+(9, 'Насосы');
 
 -- --------------------------------------------------------
 
@@ -205,6 +275,34 @@ INSERT INTO `gr_requirements` (`id`, `vacancy_id`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `gr_service`
+--
+
+CREATE TABLE IF NOT EXISTS `gr_service` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `pay` varchar(255) DEFAULT NULL,
+  `val` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Дамп данных таблицы `gr_service`
+--
+
+INSERT INTO `gr_service` (`id`, `name`, `pay`, `val`) VALUES
+(1, 'sssss', '1 000', '231321312312'),
+(2, 'Подбор оборудования', '5 000', 'Подбор оборудования для котельной. Вы сможете в режиме on-line получить предложение по подбору котельного оборудования RIELLO.'),
+(3, 'Монтаж систем отопления и водоснабжения', '8 000', 'Со знанием дела и в кратчайшие сроки мы выполним монтаж отопления загородного дома и установим отопительные приборы. Среди наших услуг – установка батарей и радиаторов разных типов.'),
+(4, 'Автоматизация системы управления', '12 000', 'Одно из направлений научно-технического прогресса, использующее саморегулирующие технические средства и математические методы с целью освобождения человека от участия в процессах.'),
+(5, 'Монтаж теплого пола', '5 000', 'Монтаж банных печей и воздухогрейных котлов. Монтаж и гильзование дымоходов. Мобильный консультант. Диагностика.'),
+(6, 'Монтаж водоотведения', 'asd', 'asd'),
+(7, 'Установка сантехники', 'asdasd', 'asd'),
+(8, 'Вентиляция', 'asd', 'asdasd');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `gr_tag`
 --
 
@@ -213,18 +311,16 @@ CREATE TABLE IF NOT EXISTS `gr_tag` (
   `text` varchar(255) DEFAULT NULL,
   `tag` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Дамп данных таблицы `gr_tag`
 --
 
 INSERT INTO `gr_tag` (`id`, `text`, `tag`) VALUES
-(1, 'adasda', 'sdasd'),
-(2, '44', '44'),
-(3, 'asdasd', 'asdasd'),
-(4, 'asd asd asd sdfdfgdf', 'gdfg'),
-(5, '2323', '2323');
+(6, 'КВАРТИРЫ', 'apartment'),
+(7, 'КОТТЕДЖИ', 'cottages'),
+(8, 'КОММЕРЧЕСКАЯ НЕДВИЖИМОСТЬ', 'commercial_real_estate');
 
 -- --------------------------------------------------------
 
@@ -240,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `gr_uploadedfiles` (
   `size` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `invisible` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=67 ;
 
 --
 -- Дамп данных таблицы `gr_uploadedfiles`
@@ -249,7 +345,70 @@ CREATE TABLE IF NOT EXISTS `gr_uploadedfiles` (
 INSERT INTO `gr_uploadedfiles` (`id`, `name`, `orig_name`, `ext`, `size`, `invisible`) VALUES
 (1, 'a20c29799216735edd40ebd8aba57cb9.jpg', 'WP_000140.jpg', 'jpg', '1421642', NULL),
 (2, 'ef4091c8b1d006990187df63a1d017a8.jpg', 'WP_000141.jpg', 'jpg', '1638061', NULL),
-(3, '9f75958f7d081d1c5d46400c3b45b5f3.jpg', 'WP_000141.jpg', 'jpg', '1638061', NULL);
+(3, '9f75958f7d081d1c5d46400c3b45b5f3.jpg', 'WP_000141.jpg', 'jpg', '1638061', NULL),
+(4, 'e764140efa637b16e1bfd89e966f67b7.jpg', 'WP_000161.jpg', 'jpg', '1830959', NULL),
+(5, 'e75cab89f2da69bd784e03c9d30b979a.jpg', 'WP_000160.jpg', 'jpg', '1853769', NULL),
+(6, '5961c94256aa963d3c0fa10ce4e2a755.jpg', 'WP_000160.jpg', 'jpg', '1853769', NULL),
+(7, '0c93caa5c3210fc9c7396b5f521337aa.jpg', 'WP_000161.jpg', 'jpg', '1830959', NULL),
+(8, '855331e557d2a2fd441b4d97e116ad60.jpg', 'WP_000161.jpg', 'jpg', '1830959', NULL),
+(9, '85c6c2d5c1181f9cf1df8a919266c991.jpg', 'banner1.jpg', 'jpg', '221571', NULL),
+(10, '35fe0f19615661e99c5fc509c7f8d4c3.jpg', 'WP_000141.jpg', 'jpg', '1638061', NULL),
+(11, '2f058c9f188d2b7b50619660c9481255.jpg', '26_6459_oboi_daft_punk_2560x1600.jpg', 'jpg', '242910', NULL),
+(12, '93817d8d0fee8396b43d6ef48de5ef1c.jpg', '45730-1680x1050.jpg', 'jpg', '311970', NULL),
+(13, 'b2604ee186cf6d5f5c34515164be8610.jpg', '45730-1680x1050.jpg', 'jpg', '311970', NULL),
+(14, '40e945b8e3c62f11d33be2f1f80a8d68.jpg', '111374-1680x1050.jpg', 'jpg', '277590', NULL),
+(15, '80fe8c0ccb930a6c46be6d13fd0c1891.jpg', '111374-1680x1050.jpg', 'jpg', '277590', NULL),
+(16, 'c830228cdff79e55daa622c2e5842df5.jpg', '45730-1680x1050.jpg', 'jpg', '311970', NULL),
+(17, 'bed05b774cf27abe6c4e55dc90caec21.jpg', '2122399786_9d73a5d7c8_b.jpg', 'jpg', '167571', NULL),
+(18, '9d98c830a2e396328e0fb78c0ade73a3.jpg', '3349230497_6ec82c994f_o.jpg', 'jpg', '694861', NULL),
+(19, 'd9891dd3f613a4d9ac2c856646061f09.jpg', '45730-1680x1050.jpg', 'jpg', '311970', NULL),
+(20, '8f027851ba721e7841157a743c9fa798.jpg', '2122399786_9d73a5d7c8_b.jpg', 'jpg', '167571', NULL),
+(21, 'aa24d66ebf4bd9be22a160c0b36855b8.jpg', '2122399786_9d73a5d7c8_b.jpg', 'jpg', '167571', NULL),
+(22, '6a1ee057ddf6d3979191b2207a265338.jpg', 'Tron-Legacy-Wallpaper-tron-Daft-punk-photo.jpg', 'jpg', '599779', NULL),
+(23, '11853f835049b5b43bade39b1dd902ee.jpg', 'WP_000153.jpg', 'jpg', '1958466', NULL),
+(24, '641be12562d633618d8bafe44ff0de09.jpg', 'WP_000144.jpg', 'jpg', '1541795', NULL),
+(25, '3b696953f74e9b9dd47da19b7c4bf84f.jpg', 'WP_000150.jpg', 'jpg', '1507932', NULL),
+(26, '4e398d37838e3858ceb36c5b8d0dadf6.jpg', '105wq5d.jpg', 'jpg', '143072', NULL),
+(27, 'd753e65a3f24bd3260160e19b9b57d1f.jpg', '45730-1680x1050.jpg', 'jpg', '311970', NULL),
+(28, '4403bcc80581c3afbbffbaeea0db2799.JPG', 'CSC_0031.JPG', 'JPG', '1597076', NULL),
+(29, '0a520538d24465db9662318ce3af8bb0.jpg', '5077329402_a5fb4f328b_o.jpg', 'jpg', '2730746', NULL),
+(30, '985ffad5553ee2da1f7a2734dbb911ac.jpg', 'WP_000148.jpg', 'jpg', '1307687', NULL),
+(31, 'c46947febb8c9acadf098539ec870c2e.png', 'equipment1.png', 'png', '24329', NULL),
+(32, 'ac53eeb910d793eb990b9285488420b2.png', 'equipment2.png', 'png', '26392', NULL),
+(33, 'fb921bbb866f116e4e0f4b669e88ac4c.png', 'equipment3.png', 'png', '19622', NULL),
+(34, 'e01aa8ffbb0a567d4fc6af236d0aefb8.png', 'equipment4.png', 'png', '22201', NULL),
+(35, '2e9d5fea002e8c962323d5c0b9d54e53.png', 'equipment6.png', 'png', '11231', NULL),
+(36, 'bf60dbd4a970e71a9cbcfd6e56d8e6c9.png', 'equipment7.png', 'png', '18407', NULL),
+(37, 'b1275b82e18cb3295229edecceb0739b.png', 'equipment8.png', 'png', '8066', NULL),
+(38, '0694dc9e22f9103d57badd8822515968.png', 'equipment9.png', 'png', '23447', NULL),
+(39, 'b17b87a5f454c9dc8001143139493a61.png', 'equipment12.png', 'png', '23314', NULL),
+(40, 'd43222246959da2fd47aa274a6ed6f9e.png', 'equipment14.png', 'png', '23568', NULL),
+(41, 'df0618795e169ca3af84041a1e0bc3db.png', 'equipment18.png', 'png', '23568', NULL),
+(42, '8812a384cce7ab9953f38ca917f02a43.png', 'equipment16.png', 'png', '9985', NULL),
+(43, '7954ff123c4ca5b90031e3fa95806ce0.png', 'equipment24.png', 'png', '27885', NULL),
+(44, '0fe76c599b6008cb3dd8e074b6e1e0fd.png', 'equipment23.png', 'png', '14549', NULL),
+(45, 'be3409ac0714fcb05dce750b3a9f7ebe.png', 'equipment22.png', 'png', '14897', NULL),
+(46, '269d99471decbc87843d4f5c6891b931.png', 'equipment21.png', 'png', '11957', NULL),
+(47, 'aa30cf673e6578ad65cece5990b79625.png', 'equipment20.png', 'png', '43783', NULL),
+(48, '97f58739e0b56632ed2570818841a9e4.png', 'equipment19.png', 'png', '47589', NULL),
+(49, '5efa8ffa60b51453065036c80ee148dd.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(50, '77eab68503a31d0f4288a7b9c2a98fe0.jpeg', '393438467.jpeg', 'jpeg', '12920', NULL),
+(51, '772ba029c5090bccbf935e8621ac3b62.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(52, 'f70d518caf8eafe43ad8afa52631f951.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(53, '9631d6125452c207e6478e50dea9e9bb.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(54, '8d835ceaa7b3d8c697a4d53b0e80d9e3.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(55, 'd2aa598be30f7c99cbcb038d29cf7225.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(56, 'bd1f0e9cb1265f0dfbc461536b4f79b2.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(57, '4a9afdcaed58b5d46399813a33bde841.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(58, '945e0d31895747e4dbbbe9f8f5f4c1a7.jpeg', '393438467.jpeg', 'jpeg', '12920', NULL),
+(59, '10920ccfc427a5fadb1cdc135f333eba.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(60, 'c3433536a03406705cd3d5d43195b845.jpeg', '393438467.jpeg', 'jpeg', '12920', NULL),
+(61, 'fa306b4dedacfbfff525c48c59d5f15b.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(62, '15c32444f8a53e02447107d74f6725a3.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(63, 'b93c810b26ad71e5ae7b6baeaf20ddd1.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(64, '760d5bcd2515154c68028d4ae0c93206.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(65, '0e99e08b289638ad62f2408693b54e03.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(66, 'a0d085c4f7a71222896c9c183db1d552.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL);
 
 -- --------------------------------------------------------
 
@@ -350,15 +509,29 @@ INSERT INTO `itemchildren` (`parent`, `child`) VALUES
 ('User Manager', 'userAdmin@AdminContacts'),
 ('User Manager', 'userAdmin@AdminCreateVacancy'),
 ('User Manager', 'userAdmin@AdminDeleteCharge'),
+('User Manager', 'userAdmin@AdminDeleteEquipment'),
+('User Manager', 'userAdmin@AdminDeleteFileEquipment'),
+('User Manager', 'userAdmin@AdminDeleteFilePortfolio'),
+('User Manager', 'userAdmin@AdminDeletePg'),
+('User Manager', 'userAdmin@AdminDeletePortfolio'),
 ('User Manager', 'userAdmin@AdminDeleteRequirements'),
+('User Manager', 'userAdmin@AdminDeleteTag'),
 ('User Manager', 'userAdmin@AdminDeleteVacancy'),
 ('User Manager', 'userAdmin@AdminDownloadFile'),
+('User Manager', 'userAdmin@AdminDownloadImg'),
 ('User Manager', 'userAdmin@AdminIndex'),
+('User Manager', 'userAdmin@AdminInfo'),
 ('User Manager', 'userAdmin@AdminMain'),
 ('User Manager', 'userAdmin@AdminProducts'),
+('User Manager', 'userAdmin@AdminSaveEqText'),
+('User Manager', 'userAdmin@AdminSaveEquipment'),
 ('User Manager', 'userAdmin@AdminSavePortfolio'),
+('User Manager', 'userAdmin@AdminSaveProductsGroup'),
 ('User Manager', 'userAdmin@AdminSaveTag'),
 ('User Manager', 'userAdmin@AdminsContacts'),
+('User Manager', 'userAdmin@AdminService'),
+('User Manager', 'userAdmin@AdminUpdatePortfolio'),
+('User Manager', 'userAdmin@AdminUpdateService'),
 ('User Manager', 'userAdmin@AdminUpdateVacancy'),
 ('User Manager', 'userAdmin@AdminWorks'),
 ('User Manager', 'View Post'),
@@ -424,15 +597,29 @@ INSERT INTO `items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('userAdmin@AdminContacts', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminCreateVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteCharge', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeleteEquipment', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeleteFileEquipment', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeleteFilePortfolio', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeletePg', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeletePortfolio', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteRequirements', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeleteTag', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDownloadFile', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDownloadImg', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminIndex', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminInfo', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminMain', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminProducts', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminSaveEqText', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminSaveEquipment', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSavePortfolio', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminSaveProductsGroup', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSaveTag', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminsContacts', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminService', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminUpdatePortfolio', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminUpdateService', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminUpdateVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminWorks', 0, NULL, NULL, 'N;'),
 ('View Post', 0, NULL, NULL, NULL),

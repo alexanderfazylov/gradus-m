@@ -1,21 +1,18 @@
 <?php
 
 /**
- * This is the model class for table "{{portfolio}}".
+ * This is the model class for table "{{products_group}}".
  *
- * The followings are the available columns in table '{{portfolio}}':
+ * The followings are the available columns in table '{{products_group}}':
  * @property integer $id
- * @property string $title
- * @property string $address
- * @property string $area
- * @property integer $file_id
+ * @property string $name
  */
-class Portfolio extends CActiveRecord
+class ProductsGroup extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Portfolio the static model class
+	 * @return ProductsGroup the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -27,7 +24,7 @@ class Portfolio extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{portfolio}}';
+		return '{{products_group}}';
 	}
 
 	/**
@@ -38,11 +35,10 @@ class Portfolio extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('file_id, tag_id', 'numerical', 'integerOnly'=>true),
-			array('title, address, area', 'length', 'max'=>255),
+			array('name', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, address, area, file_id, tag_id', 'safe', 'on'=>'search'),
+			array('id, name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +50,7 @@ class Portfolio extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-            'uploadedfiles' => array(self::BELONGS_TO, 'Uploadedfiles', 'file_id'),
+            'equipment' => array(self::HAS_MANY, 'equipment', 'pg_id'),
 		);
 	}
 
@@ -65,11 +61,7 @@ class Portfolio extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'address' => 'Address',
-			'area' => 'Area',
-			'file_id' => 'File',
-            'tag_id'=>'tag_id'
+			'name' => 'Name',
 		);
 	}
 
@@ -85,10 +77,7 @@ class Portfolio extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('address',$this->address,true);
-		$criteria->compare('area',$this->area,true);
-		$criteria->compare('file_id',$this->file_id);
+		$criteria->compare('name',$this->name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

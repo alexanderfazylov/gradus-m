@@ -56,16 +56,17 @@ li {
   text-decoration: none;
 }
 
-.anchor {
+.anchor, qq-upload-list {
   float: none;
   clear: both;
 }
 
 .classic_form {
-
+  position: relative;
   label {
     display: block;
     padding: 5px;
+    position: relative;
   }
   span {
     display: inline-block;
@@ -254,11 +255,12 @@ ul.deafault li:hover .close {
 
 .tag_list {
 
-  padding: 4px;
+  padding-left: 40px;
   li {
-    display: inline-block;
-    background: #79B4DC;
-
+    list-style: circle;
+    font-size: 20px;
+    line-height: 20px;
+    position: relative;
   }
 }
 
@@ -266,4 +268,85 @@ ul.deafault li:hover .close {
   height: 200px;
   float: none;
   clear: both;
+}
+
+.map_hint {
+  padding-left: 150px;
+}
+
+.zagr_img {
+  display: inline-block;
+  width: 150px;
+}
+
+.download_picter {
+  display: inline-block;
+  padding-top: 50px;
+}
+
+.block_port {
+  position: relative;
+}
+
+.delete_tag {
+  background: url('../img/close_delete.gif');
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+a {
+  color: blue;
+}
+
+.qq-upload-failed-text {
+  display: none;
+}
+
+.qq-upload-list {
+  display: block;
+  position: relative;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#sample {
+  ul {
+
+  }
+  ul li {
+    background: url("../img/bullet.png") no-repeat left 8px;
+    display: block;
+    padding-left: 10px;
+
+  }
+
+}
+
+.qq-upload-button {
+  float: none !important;
+  display: inline-block !important;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  .tr {
+    display: table-row;
+    .td {
+      vertical-align: top;
+      display: table-cell;
+      padding: 10px;
+      border-top: 1px solid #999;
+      input[type="text"] {
+        width: 95%;
+        display: block;
+      }
+      textarea{
+        height: 100px;
+        width: 95%;
+      }
+    }
+  }
 }

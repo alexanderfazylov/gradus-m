@@ -1,19 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "{{portfolio_tag}}".
+ * This is the model class for table "{{equipment}}".
  *
- * The followings are the available columns in table '{{portfolio_tag}}':
+ * The followings are the available columns in table '{{equipment}}':
  * @property integer $id
- * @property string $text
- * @property string $tag
+ * @property string $name
+ * @property integer $pg_id
+ * @property integer $file_id
  */
-class Tag extends CActiveRecord
+class Equipment extends CActiveRecord
 {
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
-     * @return PortfolioTag the static model class
+     * @return Equipment the static model class
      */
     public static function model($className = __CLASS__)
     {
@@ -25,7 +26,7 @@ class Tag extends CActiveRecord
      */
     public function tableName()
     {
-        return '{{tag}}';
+        return '{{equipment}}';
     }
 
     /**
@@ -36,12 +37,11 @@ class Tag extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('tag', 'required'),
-            array('tag', 'unique'),
-            array('text, tag', 'length', 'max' => 255),
+            array('pg_id, file_id', 'numerical', 'integerOnly' => true),
+            array('name', 'length', 'max' => 255),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, text, tag', 'safe', 'on' => 'search'),
+            array('id, name, pg_id, file_id, text', 'safe', 'on' => 'search'),
         );
     }
 
@@ -53,7 +53,7 @@ class Tag extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'portfolio' => array(self::HAS_MANY, 'Portfolio', 'tag_id'),
+            'uploadedfiles' => array(self::BELONGS_TO, 'Uploadedfiles', 'file_id'),
         );
     }
 
@@ -64,8 +64,10 @@ class Tag extends CActiveRecord
     {
         return array(
             'id' => 'ID',
-            'text' => 'Text',
-            'tag' => 'Tag',
+            'name' => 'Name',
+            'pg_id' => 'Pg',
+            'file_id' => 'File',
+            'text'=>'text'
         );
     }
 
@@ -81,8 +83,9 @@ class Tag extends CActiveRecord
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
-        $criteria->compare('text', $this->text, true);
-        $criteria->compare('tag', $this->tag, true);
+        $criteria->compare('name', $this->name, true);
+        $criteria->compare('pg_id', $this->pg_id);
+        $criteria->compare('file_id', $this->file_id);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
