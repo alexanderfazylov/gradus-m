@@ -27,7 +27,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        MyHelper::render($this, '/site/index', array(), 'Главная');
+        $service = Service::model()->findAll();
+        MyHelper::render($this, '/site/index', array('service' => $service), 'Главная');
     }
 
     public function actionAbout()
@@ -49,16 +50,16 @@ class SiteController extends Controller
     public function actionProduction($id)
     {
         $pgs = ProductsGroup::model()->findAll();
-        $equipments = Equipment::model()->findAllByAttributes(array('pg_id'=>$id));
+        $equipments = Equipment::model()->findAllByAttributes(array('pg_id' => $id));
 
-        MyHelper::render($this, '/site/production', array('equipments'=>$equipments, 'pgs'=>$pgs), 'Оборудование');
+        MyHelper::render($this, '/site/production', array('equipments' => $equipments, 'pgs' => $pgs), 'Оборудование');
     }
 
     public function actionServices()
     {
 
-
-        MyHelper::render($this, '/site/services', array(), 'Услуги');
+        $service = Service::model()->findAll();
+        MyHelper::render($this, '/site/services', array('service' => $service), 'Услуги');
     }
 
     public function actionWorks()

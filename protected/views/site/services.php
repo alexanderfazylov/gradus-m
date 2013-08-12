@@ -7,13 +7,12 @@
 
                 <div class="servise-description">
                     <a name="design"></a>
-                    <h4>Проектирование и расчеты</h4>
-                    Деятельность человека или организации(ий) по созданию проекта, то есть прототипа,
-                    прообраза предполагаемого или возможного объекта.
+                    <h4><?php echo $service[0]->name; ?></h4>
+                    <?php echo $service[0]->val; ?>
                 </div>
             </td>
             <td class="price">
-                от 3 000 рублей
+                от <?php echo $service[0]->pay; ?> рублей
             </td>
         </tr>
         <tr>
@@ -22,13 +21,12 @@
 
                 <div class="servise-description">
                     <a name="equipment"></a>
-                    <h4>Подбор оборудования</h4>
-                    Подбор оборудования для котельной. Вы сможете в режиме on-line получить предложение
-                    по подбору котельного оборудования RIELLO.
+                    <h4<?php echo $service[1]->name; ?></h4>
+                    <?php echo $service[1]->val; ?>
                 </div>
             </td>
             <td class="price">
-                от 5 000 рублей
+                от <?php echo $service[1]->pay; ?> рублей
             </td>
         </tr>
         <tr>
@@ -38,14 +36,12 @@
 
                 <div class="servise-description">
                     <a name="montage"></a>
-                    <h4>Монтаж систем отопления и водоснабжения</h4>
-                    Со знанием дела и в кратчайшие сроки мы выполним монтаж отопления загородного дома
-                    и установим отопительные приборы. Среди наших услуг – установка батарей и радиаторов
-                    разных типов.
+                    <h4><?php echo $service[2]->name; ?></h4>
+                    <?php echo $service[2]->val; ?>
                 </div>
             </td>
             <td class="price">
-                от 8 000 рублей м<span class="sup">2</span>
+                от <?php echo $service[2]->pay; ?> рублей м<span class="sup">2</span>
             </td>
         </tr>
         <tr>
@@ -54,14 +50,12 @@
 
                 <div class="servise-description">
                     <a name="aius"></a>
-                    <h4>Автоматизация системы управления</h4>
-                    Одно из направлений научно-технического прогресса, использующее саморегулирующие
-                    технические средства и математические методы с целью освобождения человека от участия
-                    в процессах.
+                    <h4><?php echo $service[3]->name; ?></h4>
+                    <?php echo $service[3]->val; ?>
                 </div>
             </td>
             <td class="price">
-                от 12 000 рублей
+                от <?php echo $service[3]->pay; ?> рублей
             </td>
         </tr>
         <tr>
@@ -70,13 +64,12 @@
 
                 <div class="servise-description">
                     <a name="automation"></a>
-                    <h4>Монтаж теплого пола</h4>
-                    Монтаж теплоизоляции для теплого пола. Если в помещении изначально ровный пол,
-                    на него можно сразу укладывать теплоизоляционный материал.
+                    <h4><?php echo $service[4]->name; ?></h4>
+                    <?php echo $service[4]->val; ?>
                 </div>
             </td>
             <td class="price">
-                от 5 000 рублей м<span class="sup">2</span>
+                от <?php echo $service[4]->pay; ?> рублей м<span class="sup">2</span>
             </td>
         </tr>
         <tr>
@@ -85,13 +78,12 @@
 
                 <div class="servise-description">
                     <a name="sanitation"></a>
-                    <h4>Монтаж водоотведения</h4>
-                    Монтаж банных печей и воздухогрейных котлов. Монтаж и гильзование дымоходов.
-                    Мобильный консультант. Диагностика.
+                    <h4><?php echo $service[5]->name; ?></h4>
+                    <?php echo $service[5]->val; ?>
                 </div>
             </td>
             <td class="price">
-                от 15 000 рублей
+                от <?php echo $service[5]->pay; ?> рублей
             </td>
         </tr>
         <tr>
@@ -100,13 +92,12 @@
 
                 <div class="servise-description">
                     <a name="engineers"></a>
-                    <h4>Установка сантехники</h4>
-                    Установка сантехники — очень ответственное мероприятие, требующее большой
-                    концентрации, внимательности и участия мастера.
+                    <h4><?php echo $service[6]->name; ?></h4>
+                    <?php echo $service[6]->val; ?>
                 </div>
             </td>
             <td class="price">
-                от 4 000 рублей
+                от <?php echo $service[6]->pay; ?> рублей
             </td>
         </tr>
         <tr>
@@ -115,12 +106,12 @@
 
                 <div class="servise-description">
                     <a name="ventilation"></a>
-                    <h4>Вентиляция</h4>
-                    Процесс удаления отработанного воздуха из помещения и замена его наружным.
+                    <h4><?php echo $service[7]->name; ?></h4>
+                    <?php echo $service[7]->val; ?>
                 </div>
             </td>
             <td class="price">
-                от 7 500 рублей м<span class="sup">2</span>
+                от <?php echo $service[7]->pay; ?> рублей м<span class="sup">2</span>
             </td>
         </tr>
     </table>

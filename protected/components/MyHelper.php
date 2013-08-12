@@ -28,6 +28,8 @@ class MyHelper
     {
         $tags = Tag::model()->findAll();
         $pgs = ProductsGroup::model()->findAll();
+        $service = Service::model()->findAll();
+
         $menu = array();
 //==
 
@@ -48,31 +50,31 @@ class MyHelper
 
         //==services
         $menu['services'][] = array(
-            'title' => 'Проектирование и расчеты',
+            'title' => $service[0]->name,
             'href' => '/site/services#design',
         );
         $menu['services'][] = array(
-            'title' => 'Подбор оборудования',
+            'title' => $service[1]->name,
             'href' => '/site/services#equipment',
         );
         $menu['services'][] = array(
-            'title' => 'Автоматизация системы управления',
+            'title' => $service[2]->name,
             'href' => '/site/services#aius',
         );
         $menu['services'][] = array(
-            'title' => 'Монтаж теплого пола',
+            'title' => $service[3]->name,
             'href' => '/site/services#automation',
         );
         $menu['services'][] = array(
-            'title' => 'Монтаж водоотведения',
+            'title' => $service[4]->name,
             'href' => '/site/services#sanitation',
         );
         $menu['services'][] = array(
-            'title' => 'Установка сантехники',
+            'title' => $service[5]->name,
             'href' => '/site/services#engineers',
         );
         $menu['services'][] = array(
-            'title' => 'Вентиляция',
+            'title' => $service[6]->name,
             'href' => '/site/services#ventilation',
         );
         //==
@@ -98,7 +100,6 @@ class MyHelper
         } else {
             $menu['equipment'][] = array();
         }
-
 
 
         return $menu;
