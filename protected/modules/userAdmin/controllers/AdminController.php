@@ -301,6 +301,48 @@ class AdminController extends Controller
         echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 
     }
+    public function actionDownloadImg(){
+        $uf = DIRECTORY_SEPARATOR;
+        $basePath = Yii::app()->basePath . "{$uf}..{$uf}uploads{$uf}";
+        if (!file_exists($basePath))
+            mkdir($basePath);
+
+        $allowedExtensions = $array = array("png", "jpg", "jpeg", "gif");
+        $sizeLimit = 5 * 1024 * 1024;
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+        $result = $uploader->handleUpload($basePath);
+
+
+        if (!empty($result['error'])) {
+            echo json_encode(array('status' => 'fail', 'error' => $result['error']));
+            Yii::app()->end();
+        }
+
+        $file = array(
+            'name' => $result['filename'],
+            'orig_name' => $result['user_filename'],
+            'size' => $result['size'],
+            'ext' => $result['ext'],
+        );
+
+        $Uploadedfiles = new Uploadedfiles();
+        $Uploadedfiles->attributes = $file;
+        if (!$Uploadedfiles->save()) {
+            echo json_encode(array('status' => 'fail', 'error' => 'Ошибка, сохранение не произошло 1'));
+            Yii::app()->end();
+        }
+
+        $result['file_id'] = $Uploadedfiles->id;
+        echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+    }
+
+    public function actionSaveEqText($id)
+    {
+        $equipment = Equipment::model()->findByPk($id);
+        $equipment->text = $_POST['text'];
+        $equipment->save(false);
+        echo json_encode(array('status' => 'succses'));
+    }
 
     public function actionDeleteFilePortfolio($id)
     {
@@ -311,7 +353,7 @@ class AdminController extends Controller
     }
     public function actionInfo($id)
     {
-
-        $this->render('info', array());
+        $model = Equipment::model()->findByPk($id);
+        $this->render('info', array('model'=>$model));
     }
 }

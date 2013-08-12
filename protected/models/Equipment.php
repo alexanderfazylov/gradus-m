@@ -41,7 +41,7 @@ class Equipment extends CActiveRecord
             array('name', 'length', 'max' => 255),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, name, pg_id, file_id', 'safe', 'on' => 'search'),
+            array('id, name, pg_id, file_id, text', 'safe', 'on' => 'search'),
         );
     }
 
@@ -67,6 +67,7 @@ class Equipment extends CActiveRecord
             'name' => 'Name',
             'pg_id' => 'Pg',
             'file_id' => 'File',
+            'text'=>'text'
         );
     }
 

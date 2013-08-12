@@ -19,6 +19,11 @@ $this->widget('zii.widgets.CMenu', array(
             'active' => (Yii::app()->controller->getId() == 'admin' && Yii::app()->controller->getAction()->getId() == 'products')
         ),
         array(
+            'label' => 'Услуги',
+            'url' => Yii::app()->urlManager->createUrl('/userAdmin/admin/service'),
+            'active' => (Yii::app()->controller->getId() == 'admin' && Yii::app()->controller->getAction()->getId() == 'service')
+        ),
+        array(
             'label' => 'Работы',
             'url' => Yii::app()->urlManager->createUrl('/userAdmin/admin/works'),
             'active' => (Yii::app()->controller->getId() == 'admin' && Yii::app()->controller->getAction()->getId() == 'works')

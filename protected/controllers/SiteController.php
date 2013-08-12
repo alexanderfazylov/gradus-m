@@ -49,7 +49,9 @@ class SiteController extends Controller
     public function actionProduction($id)
     {
         $pgs = ProductsGroup::model()->findAll();
-        MyHelper::render($this, '/site/production', array('pgs'=>$pgs), 'Оборудование');
+        $equipments = Equipment::model()->findAllByAttributes(array('pg_id'=>$id));
+
+        MyHelper::render($this, '/site/production', array('equipments'=>$equipments, 'pgs'=>$pgs), 'Оборудование');
     }
 
     public function actionServices()
