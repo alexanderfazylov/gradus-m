@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 11 2013 г., 16:33
+-- Время создания: Авг 12 2013 г., 09:24
 -- Версия сервера: 5.5.24-log
 -- Версия PHP: 5.3.13
 
@@ -167,6 +167,7 @@ CREATE TABLE IF NOT EXISTS `gr_equipment` (
   `name` varchar(255) DEFAULT NULL,
   `pg_id` int(10) DEFAULT '0',
   `file_id` int(10) DEFAULT '0',
+  `text` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
@@ -174,25 +175,25 @@ CREATE TABLE IF NOT EXISTS `gr_equipment` (
 -- Дамп данных таблицы `gr_equipment`
 --
 
-INSERT INTO `gr_equipment` (`id`, `name`, `pg_id`, `file_id`) VALUES
-(6, 'asdasdasd', 2, 31),
-(7, 'asd23442434', 2, 32),
-(8, '2342342', 2, 33),
-(9, '23234', 3, 34),
-(10, '345345', 3, 35),
-(11, '567567', 3, 36),
-(12, '567567', 4, 37),
-(13, '756756', 5, 42),
-(14, 'yugjgh', 5, 38),
-(15, '5656uygj', 6, 39),
-(16, 'ghjghjghjghj', 7, 41),
-(17, 'ghjghjghjj', 8, 40),
-(18, '111111111', 2, 48),
-(19, '22222222', 2, 47),
-(20, '333333333', 2, 46),
-(21, '44444444444', 2, 45),
-(22, '555555555', 2, 44),
-(23, '666666666', 2, 43);
+INSERT INTO `gr_equipment` (`id`, `name`, `pg_id`, `file_id`, `text`) VALUES
+(6, 'asdasdasd', 2, 49, '                asdasd<br><br><ul><li>asdasdasdasd</li><li>asdasdasdasd</li><li>asdasdasdasd</li></ul><p><br></p><br><img alt="asdasd" src="http://gradus/uploads/a0d085c4f7a71222896c9c183db1d552.jpg" height="652" align="none" width="1518"><br>'),
+(7, 'asd23442434', 2, 50, NULL),
+(8, '2342342', 2, 33, NULL),
+(9, '23234', 3, 34, NULL),
+(10, '345345', 3, 35, NULL),
+(11, '567567', 3, 36, NULL),
+(12, '567567', 4, 37, NULL),
+(13, '756756', 5, 42, NULL),
+(14, 'yugjgh', 5, 38, NULL),
+(15, '5656uygj', 6, 39, NULL),
+(16, 'ghjghjghjghj', 7, 41, NULL),
+(17, 'ghjghjghjj', 8, 40, NULL),
+(18, '111111111', 2, 48, NULL),
+(19, '22222222', 2, 47, NULL),
+(20, '333333333', 2, 46, NULL),
+(21, '44444444444', 2, 45, NULL),
+(22, '555555555', 2, 44, NULL),
+(23, '666666666', 2, 43, NULL);
 
 -- --------------------------------------------------------
 
@@ -215,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `gr_portfolio` (
 --
 
 INSERT INTO `gr_portfolio` (`id`, `title`, `address`, `area`, `file_id`, `tag_id`) VALUES
-(9, '«Жилой комплекс «Берег»', 'Город Казань, улица Чистопольская', '120 м2, 240 м2, 350 м2', 26, 6),
+(9, '«Жилой комплекс «Берег»', 'Город Казань, улица Чистопольская', '120 м2, 240 м2, 350 м2', 51, 6),
 (10, '«Жилой комплекс «Суворовский»', 'Город Казань, улица Петербургская', '240 м2', 27, 6),
 (11, 'Дом из Клеенного бруса', 'Город Казань, поселок Троицкий', '180 м2', 28, 7),
 (12, 'Магазин «NEW YORKER»', 'Город Казань, ТЦ «Мега»', '', 29, 8);
@@ -307,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `gr_uploadedfiles` (
   `size` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `invisible` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=67 ;
 
 --
 -- Дамп данных таблицы `gr_uploadedfiles`
@@ -361,7 +362,25 @@ INSERT INTO `gr_uploadedfiles` (`id`, `name`, `orig_name`, `ext`, `size`, `invis
 (45, 'be3409ac0714fcb05dce750b3a9f7ebe.png', 'equipment22.png', 'png', '14897', NULL),
 (46, '269d99471decbc87843d4f5c6891b931.png', 'equipment21.png', 'png', '11957', NULL),
 (47, 'aa30cf673e6578ad65cece5990b79625.png', 'equipment20.png', 'png', '43783', NULL),
-(48, '97f58739e0b56632ed2570818841a9e4.png', 'equipment19.png', 'png', '47589', NULL);
+(48, '97f58739e0b56632ed2570818841a9e4.png', 'equipment19.png', 'png', '47589', NULL),
+(49, '5efa8ffa60b51453065036c80ee148dd.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(50, '77eab68503a31d0f4288a7b9c2a98fe0.jpeg', '393438467.jpeg', 'jpeg', '12920', NULL),
+(51, '772ba029c5090bccbf935e8621ac3b62.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(52, 'f70d518caf8eafe43ad8afa52631f951.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(53, '9631d6125452c207e6478e50dea9e9bb.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(54, '8d835ceaa7b3d8c697a4d53b0e80d9e3.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(55, 'd2aa598be30f7c99cbcb038d29cf7225.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(56, 'bd1f0e9cb1265f0dfbc461536b4f79b2.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(57, '4a9afdcaed58b5d46399813a33bde841.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(58, '945e0d31895747e4dbbbe9f8f5f4c1a7.jpeg', '393438467.jpeg', 'jpeg', '12920', NULL),
+(59, '10920ccfc427a5fadb1cdc135f333eba.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(60, 'c3433536a03406705cd3d5d43195b845.jpeg', '393438467.jpeg', 'jpeg', '12920', NULL),
+(61, 'fa306b4dedacfbfff525c48c59d5f15b.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(62, '15c32444f8a53e02447107d74f6725a3.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(63, 'b93c810b26ad71e5ae7b6baeaf20ddd1.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(64, '760d5bcd2515154c68028d4ae0c93206.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(65, '0e99e08b289638ad62f2408693b54e03.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(66, 'a0d085c4f7a71222896c9c183db1d552.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL);
 
 -- --------------------------------------------------------
 
@@ -471,10 +490,12 @@ INSERT INTO `itemchildren` (`parent`, `child`) VALUES
 ('User Manager', 'userAdmin@AdminDeleteTag'),
 ('User Manager', 'userAdmin@AdminDeleteVacancy'),
 ('User Manager', 'userAdmin@AdminDownloadFile'),
+('User Manager', 'userAdmin@AdminDownloadImg'),
 ('User Manager', 'userAdmin@AdminIndex'),
 ('User Manager', 'userAdmin@AdminInfo'),
 ('User Manager', 'userAdmin@AdminMain'),
 ('User Manager', 'userAdmin@AdminProducts'),
+('User Manager', 'userAdmin@AdminSaveEqText'),
 ('User Manager', 'userAdmin@AdminSaveEquipment'),
 ('User Manager', 'userAdmin@AdminSavePortfolio'),
 ('User Manager', 'userAdmin@AdminSaveProductsGroup'),
@@ -555,10 +576,12 @@ INSERT INTO `items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('userAdmin@AdminDeleteTag', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDownloadFile', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDownloadImg', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminIndex', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminInfo', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminMain', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminProducts', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminSaveEqText', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSaveEquipment', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSavePortfolio', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSaveProductsGroup', 0, NULL, NULL, 'N;'),
