@@ -81,7 +81,7 @@
         <table class="vacancies">
             <?php foreach ($vacancys as $vacancy): ?>
                 <tr>
-                    <td width="320">
+                    <td class="vacansies_td" width="320">
                         <h3><?php echo $vacancy->title; ?></h3>
                         <a href="<?php echo $this->contacts['email']; ?>" class="respond-to-vacancy">Откликнуться на
                             вакансию</a>
