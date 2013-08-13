@@ -329,7 +329,9 @@ input[type='submit']:disabled, input[type='submit']:disabled:hover {
 #all-site-button:hover span {
   border-bottom: none;
 }
-
+#all-site-button:hover {
+  background-image: url('../img/all-site-button-inhover.png');
+}
 #all-site-button.active {
   z-index: 3 !important;
   background-image: url('../img/all-site-button-inactive.png') !important;
