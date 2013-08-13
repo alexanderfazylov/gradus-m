@@ -301,7 +301,9 @@ class AdminController extends Controller
         echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 
     }
-    public function actionDownloadImg(){
+
+    public function actionDownloadImg()
+    {
         $uf = DIRECTORY_SEPARATOR;
         $basePath = Yii::app()->basePath . "{$uf}..{$uf}uploads{$uf}";
         if (!file_exists($basePath))
@@ -351,9 +353,30 @@ class AdminController extends Controller
         $model->save(false);
         echo json_encode(array('status' => 'succses'));
     }
+
     public function actionInfo($id)
     {
         $model = Equipment::model()->findByPk($id);
-        $this->render('info', array('model'=>$model));
+        $this->render('info', array('model' => $model));
+    }
+
+    public function actionService()
+    {
+        $models = Service::model()->findAll();
+        $this->render('service', array('models' => $models));
+    }
+
+    public function actionUpdateService()
+    {
+        foreach ($_POST['Service'] as $id => $value) {
+
+            $model = Service::model()->findByPk($id);
+            $model->name = $value['name'];
+            $model->pay = $value['pay'];
+            $model->val = $value['val'];
+            $model->save(false);
+            echo json_encode(array('status' => 'succses'));
+        }
+
     }
 }

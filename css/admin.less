@@ -56,7 +56,7 @@ li {
   text-decoration: none;
 }
 
-.anchor , qq-upload-list{
+.anchor, qq-upload-list {
   float: none;
   clear: both;
 }
@@ -299,19 +299,23 @@ ul.deafault li:hover .close {
 a {
   color: blue;
 }
-.qq-upload-failed-text{
+
+.qq-upload-failed-text {
   display: none;
 }
-.qq-upload-list{
-  display: block;position: relative;
+
+.qq-upload-list {
+  display: block;
+  position: relative;
   border: 1px solid black;
-  padding:10px;
+  padding: 10px;
 }
-#sample{
-  ul{
+
+#sample {
+  ul {
 
   }
-  ul li{
+  ul li {
     background: url("../img/bullet.png") no-repeat left 8px;
     display: block;
     padding-left: 10px;
@@ -319,7 +323,30 @@ a {
   }
 
 }
-  .qq-upload-button{
-    float: none!important;
-    display: inline-block!important;
+
+.qq-upload-button {
+  float: none !important;
+  display: inline-block !important;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  .tr {
+    display: table-row;
+    .td {
+      vertical-align: top;
+      display: table-cell;
+      padding: 10px;
+      border-top: 1px solid #999;
+      input[type="text"] {
+        width: 95%;
+        display: block;
+      }
+      textarea{
+        height: 100px;
+        width: 95%;
+      }
+    }
   }
+}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 12 2013 г., 09:24
+-- Время создания: Авг 12 2013 г., 11:03
 -- Версия сервера: 5.5.24-log
 -- Версия PHP: 5.3.13
 
@@ -275,6 +275,34 @@ INSERT INTO `gr_requirements` (`id`, `vacancy_id`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `gr_service`
+--
+
+CREATE TABLE IF NOT EXISTS `gr_service` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `pay` varchar(255) DEFAULT NULL,
+  `val` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Дамп данных таблицы `gr_service`
+--
+
+INSERT INTO `gr_service` (`id`, `name`, `pay`, `val`) VALUES
+(1, 'sssss', '1 000', '231321312312'),
+(2, 'Подбор оборудования', '5 000', 'Подбор оборудования для котельной. Вы сможете в режиме on-line получить предложение по подбору котельного оборудования RIELLO.'),
+(3, 'Монтаж систем отопления и водоснабжения', '8 000', 'Со знанием дела и в кратчайшие сроки мы выполним монтаж отопления загородного дома и установим отопительные приборы. Среди наших услуг – установка батарей и радиаторов разных типов.'),
+(4, 'Автоматизация системы управления', '12 000', 'Одно из направлений научно-технического прогресса, использующее саморегулирующие технические средства и математические методы с целью освобождения человека от участия в процессах.'),
+(5, 'Монтаж теплого пола', '5 000', 'Монтаж банных печей и воздухогрейных котлов. Монтаж и гильзование дымоходов. Мобильный консультант. Диагностика.'),
+(6, 'Монтаж водоотведения', 'asd', 'asd'),
+(7, 'Установка сантехники', 'asdasd', 'asd'),
+(8, 'Вентиляция', 'asd', 'asdasd');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `gr_tag`
 --
 
@@ -501,7 +529,9 @@ INSERT INTO `itemchildren` (`parent`, `child`) VALUES
 ('User Manager', 'userAdmin@AdminSaveProductsGroup'),
 ('User Manager', 'userAdmin@AdminSaveTag'),
 ('User Manager', 'userAdmin@AdminsContacts'),
+('User Manager', 'userAdmin@AdminService'),
 ('User Manager', 'userAdmin@AdminUpdatePortfolio'),
+('User Manager', 'userAdmin@AdminUpdateService'),
 ('User Manager', 'userAdmin@AdminUpdateVacancy'),
 ('User Manager', 'userAdmin@AdminWorks'),
 ('User Manager', 'View Post'),
@@ -587,7 +617,9 @@ INSERT INTO `items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('userAdmin@AdminSaveProductsGroup', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSaveTag', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminsContacts', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminService', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminUpdatePortfolio', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminUpdateService', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminUpdateVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminWorks', 0, NULL, NULL, 'N;'),
 ('View Post', 0, NULL, NULL, NULL),
