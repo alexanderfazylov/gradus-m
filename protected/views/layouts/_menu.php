@@ -1,6 +1,6 @@
 <div id="menu">
   <div id="all-site-button" onclick="stopPrepagenation(event)" >
-    <span>Весь сайт</span>
+<!--    <span>Весь сайт</span>-->
   </div>
   <?php
   $this->widget('zii.widgets.CMenu', array(
