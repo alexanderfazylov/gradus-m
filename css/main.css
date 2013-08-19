@@ -33,6 +33,7 @@ a, img, input {
 
 a:hover {
   color: #f27157;
+  text-decoration:none;
 }
 
 a img {
@@ -94,6 +95,7 @@ p {
 .sup {
   vertical-align: super;
   font-size: 60%;
+  line-height: normal!important;
 }
 
 /*НЕЛЬЗЯ ДАВАТЬ ТАКОЙ СТИЛЬ СЛИШКОМ ГЛОБАЛЬНО */
@@ -216,7 +218,7 @@ input[type='submit']:disabled, input[type='submit']:disabled:hover {
 
 #main {
   overflow: auto;
-  /*  padding-bottom: 150px;*/
+    /*padding-bottom: 150px;*/
   margin-bottom: -40px;
   overflow: hidden;
 }
@@ -344,7 +346,7 @@ input[type='submit']:disabled, input[type='submit']:disabled:hover {
   border: 2px solid #ffd209;
   top: 90px;
   left: 50px;
-  padding: 20px 20px 20px 170px;
+  padding: 35px 20px 20px 170px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -368,7 +370,7 @@ table#full-menu a {
   margin: 0;
   margin-bottom: 5px;
   font-weight: normal;
-  text-transform: lowercase;
+/*  text-transform: lowercase;*/
 }
 
 table#full-menu a.full-menu-section {
@@ -691,21 +693,28 @@ table#about td {
 }
 
 .services-table h4 {
-  margin-top: 0 !important;
+  margin: 0 !important;
 }
-
+.services-table {
+  vertical-align:top;
+}
 .services-table img {
   float: left;
+  margin-top: 5px;
 }
 
 .servise-description {
   padding-left: 60px;
-  margin-top: -4px;
-  line-height: 20px;
+
+  /*vertical-align:top;*/
 }
 
-.services-table tr td {
-  padding: 20px 15px;
+.services-table{
+  padding-top:20px;
+}
+.services-table tr>td {
+  line-height: 20px;
+  padding: 0px 15px 45px;
 }
 
 .price {
@@ -713,6 +722,8 @@ table#about td {
   color: #f27157;
   font-weight: bold;
   font-size: 16px;
+  vertical-align:top;
+  padding-top:19px!important;
 }
 
 /* End of services page */
@@ -907,16 +918,16 @@ table#about td {
 /* Footer */
 #footer {
   position: relative;
-  margin-top: -151px;
-  height: 110px;
+  margin-top: -150px;
+  height: 82px;
   clear: both;
   border-top: 1px solid #d8d8d8;
-  padding: 40px 0 0 0;
+  padding: 40px 0 40px 0;
   color: #898989;
 }
 
 #footer .copyright {
-  width: 100px;
+  white-space: nowrap;
   float: right;
   font-size: 13px;
   text-align: right;
@@ -933,6 +944,10 @@ table#about td {
 #footer .contacts {
   font-size: 14px;
   line-height: 19px;
+}
+#footer .contacts  tr > td{
+  padding-right: 20px;
+  vertical-align: top;
 }
 
 #maineeror {
@@ -951,4 +966,7 @@ table#about td {
 .vacansies_td{
   width:320px;
   padding-right:20px;
+}
+.main_title{
+  margin: 47px 0 27px!important;
 }

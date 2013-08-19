@@ -1,7 +1,7 @@
 <div class="section equipment">
 
 
-    <h2>Продукция</h2>
+    <h2>Оборудование</h2>
 
     <?php foreach ($pgs as $pg): ?>
         <div class="equipment-box">

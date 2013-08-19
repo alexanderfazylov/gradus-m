@@ -39,7 +39,7 @@
                     <?php endforeach; ?>
                 </td>
                 <td width="130">
-                    <a class="full-menu-section" href="/site/equipment">Продукция</a>
+                    <a class="full-menu-section" href="/site/equipment">Оборудование</a>
 
                     <?php foreach ($this->menu['equipment'] as $value): ?>
                         <a href="<?php echo $value['href']; ?>"><?php echo $value['title']; ?></a>
@@ -70,7 +70,7 @@
     <div class="company-name"><?php echo $this->contacts['full_name']; ?></div>
     <table class="contacts">
         <tr>
-            <td width="240">
+            <td>
                 <?php echo $this->contacts['anschrift']; ?><br/>
                 Телефон:  <?php echo $this->contacts['tel']; ?><br/>
                 Электронная почта: <a
