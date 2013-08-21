@@ -12,7 +12,7 @@
               Yii::app()->controller->getAction()->getId() == 'about')
           ),
           array(
-              'label' => 'Продукция',
+              'label' => 'Оборудование',
               'url' => Yii::app()->urlManager->createUrl('site/equipment'),
               'active' => (Yii::app()->controller->getId() == 'site' &&
               Yii::app()->controller->getAction()->getId() == 'equipment')

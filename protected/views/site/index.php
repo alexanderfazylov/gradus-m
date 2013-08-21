@@ -54,11 +54,11 @@
                         src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-heating-and-water-supply-installation.png"/>
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#montage"><?php echo $service[2]->name; ?></a>
                 </td>
-                <td width="129">
+                <td class="br_table">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-automated-control-systems.png"/>
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#aius"><?php echo $service[3]->name; ?></a>
                 </td>
-                <td width="90">
+                <td class="br_table">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-heated-floor-installation.png"/>
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#automation"><?php echo $service[4]->name; ?></a>
                 </td>
@@ -82,7 +82,7 @@
     <table id="about">
         <tr>
             <td width="450">
-                <h2>О компании</h2>
+                <h2 class="main_title">О компании</h2>
 
                 <p>Компания ООО «Теплосинтез» Основана в 2006 году году.</p>
 
@@ -93,7 +93,7 @@
                     технологических возможностей и рынка сантехнического оборудования.</p>
             </td>
             <td width="430">
-                <h2>Преимущества</h2>
+                <h2 class="main_title">Преимущества</h2>
                 <ul class="standart-ul">
                     <li>профессиональные знания и опыт – десятки выполненных объектов различного уровня сложности</li>
                     <li>высокий уровень сервиса – мы всегда работаем для клиента</li>
