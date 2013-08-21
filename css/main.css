@@ -473,7 +473,13 @@ table#benefits td.hotline {
 /* About */
 table#about td {
   vertical-align: top;
-  padding-right: 30px;
+  padding-right: 25px;
+}
+table#about td:first-child {
+  padding-right: 47px;
+}
+#about{
+  margin-bottom: 25px;
 }
 
 /* Equipment */
