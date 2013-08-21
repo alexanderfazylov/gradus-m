@@ -35,15 +35,15 @@ class MyHelper
 
         $menu['about'][] = array(
             'title' => 'О нас',
-            'href' => '/site/about#about',
+            'href' => '/about#about',
         );
         $menu['about'][] = array(
             'title' => 'Вакансии',
-            'href' => '/site/about#vacancy',
+            'href' => '/about#vacancy',
         );
         $menu['about'][] = array(
             'title' => 'Контакты',
-            'href' => '/site/about#contacts',
+            'href' => '/about#contacts',
         );
         //==
 
@@ -51,31 +51,35 @@ class MyHelper
         //==services
         $menu['services'][] = array(
             'title' => $service[0]->name,
-            'href' => '/site/services#design',
+            'href' => '/services#design',
         );
         $menu['services'][] = array(
             'title' => $service[1]->name,
-            'href' => '/site/services#equipment',
+            'href' => '/services#equipment',
         );
         $menu['services'][] = array(
             'title' => $service[2]->name,
-            'href' => '/site/services#aius',
+            'href' => '/services#aius',
         );
         $menu['services'][] = array(
             'title' => $service[3]->name,
-            'href' => '/site/services#automation',
+            'href' => '/services#automation',
         );
         $menu['services'][] = array(
             'title' => $service[4]->name,
-            'href' => '/site/services#sanitation',
+            'href' => '/services#sanitation',
         );
         $menu['services'][] = array(
             'title' => $service[5]->name,
-            'href' => '/site/services#engineers',
+            'href' => '/services#engineers',
         );
         $menu['services'][] = array(
             'title' => $service[6]->name,
-            'href' => '/site/services#ventilation',
+            'href' => '/services#engineers',
+        );
+        $menu['services'][] = array(
+            'title' => $service[7]->name,
+            'href' => '/services#ventilation',
         );
         //==
 
@@ -83,7 +87,7 @@ class MyHelper
             foreach ($tags as $tag) {
                 $menu['works'][] = array(
                     'title' => $tag->text,
-                    'href' => '/site/works#' . $tag->tag,
+                    'href' => '/works#' . $tag->tag,
                 );
             }
         } else {
@@ -94,7 +98,7 @@ class MyHelper
             foreach ($pgs as $pg) {
                 $menu['equipment'][] = array(
                     'title' => $pg->name,
-                    'href' => '/site/equipment#' . $pg->name,
+                    'href' => '/equipment#' . $pg->name,
                 );
             }
         } else {

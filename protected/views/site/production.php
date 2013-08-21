@@ -15,7 +15,7 @@
 
     </ul>
     <div class="equipment-content">
-        <p class="mini-title">Продукция</p>
+        <p class="mini-title">Оборудование</p>
 
         <h2><?php echo $title ?></h2>
         <?php foreach ($equipments as $equipment): ?>
