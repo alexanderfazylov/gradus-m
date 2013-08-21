@@ -14,7 +14,7 @@ $this->widget('zii.widgets.CMenu', array(
             'active' => (Yii::app()->controller->getId() == 'admin' && Yii::app()->controller->getAction()->getId() == 'about')
         ),
         array(
-            'label' => 'Продукция',
+            'label' => 'Оборудование',
             'url' => Yii::app()->urlManager->createUrl('/userAdmin/admin/products'),
             'active' => (Yii::app()->controller->getId() == 'admin' && Yii::app()->controller->getAction()->getId() == 'products')
         ),

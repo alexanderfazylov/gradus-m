@@ -1,6 +1,23 @@
 $('html').click(function() {
   closeInfoPanel();
 });
+
+$(function() {
+  $(".vendor").find("span").hide().end().hover(function() { 
+    $(this).find("span").stop().fadeIn(); 
+  }, function() {
+    $(this).find("span").stop().fadeOut(); 
+  }); 
+  // Запускаем слайдшоу
+  theRotator();		
+  $("#all-site-button").click(function() {
+    takeActionSiteMenu();
+  });
+  $("#full-menu a").click(function() {
+    takeActionSiteMenu();
+  });
+});
+
 function theRotator() {
   // Устанавливаем прозрачность всех картинок в 0
   $('div#rotator ul li').css({
@@ -63,20 +80,6 @@ function takeActionSiteMenu(){
   else 
     openInfoPanel();
 }
-$(function() {
-  
-  $(".vendor").find("span").hide().end().hover(function() { 
-    $(this).find("span").stop().fadeIn(); 
-  }, function() {
-    $(this).find("span").stop().fadeOut(); 
-  }); 
-  // Запускаем слайдшоу
-  theRotator();		
-  
-  $("#all-site-button").click(function() {
-    takeActionSiteMenu();
-  });
-});
 function loginValedate(){
   alert('asd');
 }
