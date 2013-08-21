@@ -31,7 +31,7 @@
           ),
           array(
               'label' => 'Контакты',
-              'url' => Yii::app()->urlManager->createUrl('site/about#contact'),
+              'url' => Yii::app()->urlManager->createUrl('about#contact'),
           ),
 //          array(
 //              'label' => 'Вход',

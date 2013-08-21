@@ -5,6 +5,9 @@
         <?php foreach ($models as $model): ?>
             <div class='tr'>
                 <div class="td">
+                    <img src="/img/e/<?php echo $model->id ;?>.png" />
+                </div>
+                <div class="td">
                     <input type="text" name="Service[<?php echo $model->id; ?>][name]"
                            value="<?php echo $model->name; ?>"/>
                 </div>

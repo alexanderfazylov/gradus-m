@@ -17,7 +17,7 @@
                 <div class="description">Телефон для связи</div>
                 <div class="phone"><span class="code">8 (843) </span><span class="phone-number">225-58-85</span></div>
             </div>
-            <a class="logo" href="<?php echo Yii::app()->request->baseUrl; ?>/site/index"></a>
+            <a class="logo" href="<?php echo $this->createAbsoluteUrl('index'); ?>"></a>
         </div>
 
         <!-- Menu -->
