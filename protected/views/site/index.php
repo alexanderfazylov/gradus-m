@@ -54,11 +54,11 @@
                         src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-heating-and-water-supply-installation.png"/>
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#montage"><?php echo $service[2]->name; ?></a>
                 </td>
-                <td width="129">
+                <td class="br_table">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-automated-control-systems.png"/>
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#aius"><?php echo $service[3]->name; ?></a>
                 </td>
-                <td width="90">
+                <td class="br_table">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-heated-floor-installation.png"/>
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#automation"><?php echo $service[4]->name; ?></a>
                 </td>

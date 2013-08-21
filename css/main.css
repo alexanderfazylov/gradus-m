@@ -370,7 +370,10 @@ table#full-menu a {
   margin: 0;
   margin-bottom: 5px;
   font-weight: normal;
-/*  text-transform: lowercase;*/
+  text-transform: lowercase;
+}
+table#full-menu a:first-letter {
+  text-transform: uppercase;
 }
 
 table#full-menu a.full-menu-section {
@@ -969,4 +972,7 @@ table#about td {
 }
 .main_title{
   margin: 47px 0 27px!important;
+}
+.br_table{
+  padding-right: 40px;
 }
