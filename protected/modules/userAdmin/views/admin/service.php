@@ -2,10 +2,24 @@
 
 <form id="service">
     <div class="table">
+        <div class='tr'>
+            <div class="td">
+
+            </div>
+            <div class="td">
+                Заголовок
+            </div>
+            <div class="td">
+                Цена
+            </div>
+            <div class="td">
+                Описание
+            </div>
+        </div>
         <?php foreach ($models as $model): ?>
             <div class='tr'>
                 <div class="td">
-                    <img src="/img/e/<?php echo $model->id ;?>.png" />
+                    <img src="/img/e/<?php echo $model->id; ?>.png"/>
                 </div>
                 <div class="td">
                     <input type="text" name="Service[<?php echo $model->id; ?>][name]"
@@ -21,6 +35,7 @@
             </div>
         <?php endforeach; ?>
         <div class='tr'>
+            <div class="td"></div>
             <div class="td"></div>
             <div class="td"></div>
             <div class="td">

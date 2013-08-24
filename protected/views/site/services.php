@@ -21,7 +21,7 @@
 
                 <div class="servise-description">
                     <a name="equipment"></a>
-                    <h4<?php echo $service[1]->name; ?></h4>
+                    <h4><?php echo $service[1]->name; ?></h4>
                     <?php echo $service[1]->val; ?>
                 </div>
             </td>

@@ -24,6 +24,16 @@ class AdminController extends Controller
     public function actionMain()
     {
         $contacts = Contacts::contactsHelper();
+
+        unset($contacts['about_large']);
+        unset($contacts['about_maine']);
+        unset($contacts['about_plus']);
+
+        $about_plus = Contacts::model()->findByAttributes(array('name' => 'about_plus'));
+        $about_maine = Contacts::model()->findByAttributes(array('name' => 'about_maine'));
+
+        $slides = Slider::model()->findAll(array(
+            'order' => 't.order ASC'));
         if (isset($_POST['Contacts'])) {
 
             foreach ($_POST['Contacts'] as $attribute => $val) {
@@ -34,14 +44,66 @@ class AdminController extends Controller
             echo json_encode(array('status' => 'succses'));
             die();
         }
-        $this->render('main', array('contacts' => $contacts));
+
+        $this->render('main', array(
+            'contacts' => $contacts,
+            'slides' => $slides,
+            'about_plus' => $about_plus,
+            'about_maine' => $about_maine
+        ));
+    }
+
+    public function actionSaveSledePosition()
+    {
+        $order = 1;
+        foreach ($_POST['slides'] as $id) {
+            $slide = Slider::model()->findByPk($id);
+            $slide->order = $order;
+            $slide->save();
+            $order++;
+        }
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionDeleteSlide($id)
+    {
+        Slider::model()->deleteByPk($id);
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionPositionSlide($id)
+    {
+        $slide = Slider::model()->findByPk($id);
+
+        switch ($slide->position) {
+            case Slider::POSION_HIDE:
+                $slide->position = Slider::POSION_SHOW;
+                break;
+            case Slider::POSION_SHOW:
+                $slide->position = Slider::POSION_HIDE;
+                break;
+        }
+
+        $slide->save();
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionCreateSleder()
+    {
+        $slide = new Slider();
+        $slide->position = Slider::POSION_HIDE;
+        $slide->order = 0;
+        $slide->file_id = 0;
+        $slide->save();
+        echo json_encode(array('status' => 'succses'));
     }
 
     public function actionAbout()
     {
 
         $vacancys = Vacancy::model()->findAll();
-        $this->render('about', array('vacancys' => $vacancys));
+        $about_large = Contacts::model()->findByAttributes(array('name' => 'about_large'));
+        $this->render('about', array('vacancys' => $vacancys, 'about_large' => $about_large));
     }
 
     public function actionUpdateVacancy($id)
@@ -169,6 +231,21 @@ class AdminController extends Controller
         }
     }
 
+    public function actionPositionVacancy($id)
+    {
+        $vacancy = Vacancy::model()->findByPk($id);
+        switch ($vacancy->position) {
+            case 1:
+                $vacancy->position = 2;
+                break;
+            case 2:
+                $vacancy->position = 1;
+                break;
+        }
+        $vacancy->save();
+        echo json_encode(array('status' => 'succses'));
+    }
+
     public function actionSaveTag()
     {
         if (isset($_POST['Tag'])) {
@@ -251,6 +328,11 @@ class AdminController extends Controller
             $width = '140';
             $height = '140';
             $model = Equipment::model()->findByPk($id);
+        } elseif ($type == '3') {
+            //Equipment
+            $width = '940';
+            $height = '400';
+            $model = Slider::model()->findByPk($id);
         }
 
 
@@ -377,6 +459,32 @@ class AdminController extends Controller
             $model->save(false);
             echo json_encode(array('status' => 'succses'));
         }
+
+    }
+
+    public function actionUpdatePlusMaine()
+    {
+        $contact = Contacts::model()->findByAttributes(array('name' => 'about_plus'));
+        $contact->val = $_POST['Contacts']['about_plus'];
+        $contact->save();
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionUpdateAboutMaine()
+    {
+        $contact = Contacts::model()->findByAttributes(array('name' => 'about_maine'));
+        $contact->val = $_POST['Contacts']['about_maine'];
+        $contact->save();
+        echo json_encode(array('status' => 'succses'));
+
+    }
+
+    public function actionUpdateLarge()
+    {
+        $contact = Contacts::model()->findByAttributes(array('name' => 'about_large'));
+        $contact->val = $_POST['Contacts']['about_large'];
+        $contact->save();
+        echo json_encode(array('status' => 'succses'));
 
     }
 }
