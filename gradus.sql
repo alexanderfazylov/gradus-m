@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 12 2013 г., 11:03
+-- Время создания: Авг 24 2013 г., 12:42
 -- Версия сервера: 5.5.24-log
 -- Версия PHP: 5.3.13
 
@@ -137,10 +137,10 @@ INSERT INTO `gr_charge` (`id`, `vacancy_id`, `text`) VALUES
 
 CREATE TABLE IF NOT EXISTS `gr_contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` text,
-  `val` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `val` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `gr_contacts`
@@ -154,7 +154,10 @@ INSERT INTO `gr_contacts` (`id`, `name`, `val`) VALUES
 (5, 'email', 'info@gradus-m.ru'),
 (6, 'full_name', 'ООО «ТЕПЛОСИНТЕЗ»'),
 (7, 'coperite', '© 2013 Градус-М'),
-(8, 'map', '<script type="text/javascript" charset="utf-8"\r\n                    src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=G3-MUyKrtcnjN7iGLDBYSVAie7esz5px&height=450">\r\n\r\n            </script>');
+(8, 'map', '<script type="text/javascript" charset="utf-8"\r\n                    src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=G3-MUyKrtcnjN7iGLDBYSVAie7esz5px&height=450">\r\n\r\n            </script>'),
+(9, 'about_plus', '<li>профессиональные знания и опыт – десятки выполненных объектов различного уровня сложности</li>\r\n<li>высокий уровень сервиса – мы всегда работаем для клиента</li>\r\n<li>высокое качество выполненных работ</li>\r\n<li>динамичность и гибкость</li>\r\n<li>применение в работе исключительно качественных материалов оборудования (Viessman, Vaillant, Buderus, Uponor, Purmo, Far)</li>\r\n<li>гарантия на все выполненные работы 5 лет</li>'),
+(10, 'about_maine', '<p>Компания ООО «Теплосинтез» Основана в 2006 году году.</p>\r\n<p>Наша компания оказывает услуги по проектированию, монтажу и дальнейшему сервисному обслуживанию систем отопления, водоснабжения и автоматизации любого уровня сложности. Кроме того мы готовы оказать консультацию по подбору оптимальных материалов и оборудованию, соответствующих вашим потребностям и возможностям, что является не меньшей проблемой при недостаточных знаниях современных технологических возможностей и рынка сантехнического оборудования.</p>'),
+(11, 'about_large', '<p>Компания ООО «Теплосинтез» Основана в 2006 году году.</p>\r\n\r\n        <p>Наша компания оказывает услуги по проектированию, монтажу и дальнейшему сервисному обслуживанию систем\r\n            отопления, водоснабжения и автоматизации любого уровня сложности. Кроме того мы готовы оказать консультацию\r\n            по подбору оптимальных материалов и оборудованию, соответствующих вашим потребностям и возможностям, что\r\n            является не меньшей проблемой при недостаточных знаниях современных технологических возможностей и рынка\r\n            сантехнического оборудования.</p>\r\n\r\n        <p>Мы являемся стабильной и ответственной компанией, гарантируем качество оказываемых услуг, в минимальные сроки\r\n            и высокий уровень сервиса на заказах любой сложности. Нашу компанию отличает индивидуальный подход в каждом\r\n            конкретном случае, высокая квалификация специалистов, партнерские отношения с ведущими поставщиками\r\n            сантехнического оборудования и материалов, применение инновационных технологий.</p>');
 
 -- --------------------------------------------------------
 
@@ -177,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `gr_equipment` (
 
 INSERT INTO `gr_equipment` (`id`, `name`, `pg_id`, `file_id`, `text`) VALUES
 (6, 'asdasdasd', 2, 49, '                asdasd<br><br><ul><li>asdasdasdasd</li><li>asdasdasdasd</li><li>asdasdasdasd</li></ul><p><br></p><br><img alt="asdasd" src="http://gradus/uploads/a0d085c4f7a71222896c9c183db1d552.jpg" height="652" align="none" width="1518"><br>'),
-(7, 'asd23442434', 2, 50, NULL),
+(7, 'asd23442434', 2, 74, NULL),
 (8, '2342342', 2, 33, NULL),
 (9, '23234', 3, 34, NULL),
 (10, '345345', 3, 35, NULL),
@@ -216,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `gr_portfolio` (
 --
 
 INSERT INTO `gr_portfolio` (`id`, `title`, `address`, `area`, `file_id`, `tag_id`) VALUES
-(9, '«Жилой комплекс «Берег»', 'Город Казань, улица Чистопольская', '120 м2, 240 м2, 350 м2', 51, 6),
+(9, '«Жилой комплекс «Берег»', '', '120 м2, 240 м2, 350 м2', 51, 6),
 (10, '«Жилой комплекс «Суворовский»', 'Город Казань, улица Петербургская', '240 м2', 27, 6),
 (11, 'Дом из Клеенного бруса', 'Город Казань, поселок Троицкий', '180 м2', 28, 7),
 (12, 'Магазин «NEW YORKER»', 'Город Казань, ТЦ «Мега»', '', 29, 8);
@@ -303,6 +306,33 @@ INSERT INTO `gr_service` (`id`, `name`, `pay`, `val`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `gr_slider`
+--
+
+CREATE TABLE IF NOT EXISTS `gr_slider` (
+  `order` int(255) DEFAULT NULL,
+  `position` int(10) DEFAULT NULL,
+  `file_id` int(255) DEFAULT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Дамп данных таблицы `gr_slider`
+--
+
+INSERT INTO `gr_slider` (`order`, `position`, `file_id`, `id`) VALUES
+(4, 1, 71, 2),
+(5, 1, 72, 3),
+(2, 1, 69, 4),
+(3, 1, 70, 5),
+(1, 1, 73, 6),
+(0, 2, 0, 7),
+(0, 2, 0, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `gr_tag`
 --
 
@@ -336,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `gr_uploadedfiles` (
   `size` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `invisible` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=67 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=75 ;
 
 --
 -- Дамп данных таблицы `gr_uploadedfiles`
@@ -408,7 +438,15 @@ INSERT INTO `gr_uploadedfiles` (`id`, `name`, `orig_name`, `ext`, `size`, `invis
 (63, 'b93c810b26ad71e5ae7b6baeaf20ddd1.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
 (64, '760d5bcd2515154c68028d4ae0c93206.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
 (65, '0e99e08b289638ad62f2408693b54e03.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
-(66, 'a0d085c4f7a71222896c9c183db1d552.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL);
+(66, 'a0d085c4f7a71222896c9c183db1d552.jpg', 'Daft-Punk-HD-Wallpapers.jpg', 'jpg', '1602639', NULL),
+(67, 'c8586cc9fbca79ad5173c47808cd15f5.jpg', 'Chrysanthemum.jpg', 'jpg', '879394', NULL),
+(68, 'dc544bfc8de681085ccc71f0a818c198.jpg', 'Tulips.jpg', 'jpg', '620888', NULL),
+(69, '237df2e89ac44d3b3446529a3ab70e78.jpg', 'banner1.jpg', 'jpg', '221571', NULL),
+(70, 'f4eaea4f48bd7d3b201e59c7d0084158.jpg', 'banner2.jpg', 'jpg', '365631', NULL),
+(71, '184ecf351815cb8826de542ed919340a.jpg', 'banner3.jpg', 'jpg', '240240', NULL),
+(72, '7788f0517f3dad460720c33bb3fba942.jpg', 'banner4.jpg', 'jpg', '192302', NULL),
+(73, '027d0f20936148d8f29292479989c0f1.jpg', 'banner5.jpg', 'jpg', '275272', NULL),
+(74, '1cbc1152a23eb6fd366d474347bd50a2.jpg', 'banner2.jpg', 'jpg', '365631', NULL);
 
 -- --------------------------------------------------------
 
@@ -441,6 +479,7 @@ CREATE TABLE IF NOT EXISTS `gr_vacancy` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `order` int(255) DEFAULT NULL,
+  `position` int(2) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
@@ -448,9 +487,9 @@ CREATE TABLE IF NOT EXISTS `gr_vacancy` (
 -- Дамп данных таблицы `gr_vacancy`
 --
 
-INSERT INTO `gr_vacancy` (`id`, `title`, `order`) VALUES
-(5, ' Инженер по обслуживанию импортного газового оборудования', 2),
-(6, 'Монтажник систем отопления, водоснабжения, насосов , котлов и водонагревателей', 1);
+INSERT INTO `gr_vacancy` (`id`, `title`, `order`, `position`) VALUES
+(5, ' Инженер по обслуживанию импортного газового оборудования', 2, 2),
+(6, 'Монтажник систем отопления, водоснабжения, насосов , котлов и водонагревателей', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -507,6 +546,7 @@ INSERT INTO `itemchildren` (`parent`, `child`) VALUES
 ('User Manager', 'userAdmin@AdminAddCharge'),
 ('User Manager', 'userAdmin@AdminAddRequirements'),
 ('User Manager', 'userAdmin@AdminContacts'),
+('User Manager', 'userAdmin@AdminCreateSleder'),
 ('User Manager', 'userAdmin@AdminCreateVacancy'),
 ('User Manager', 'userAdmin@AdminDeleteCharge'),
 ('User Manager', 'userAdmin@AdminDeleteEquipment'),
@@ -515,6 +555,7 @@ INSERT INTO `itemchildren` (`parent`, `child`) VALUES
 ('User Manager', 'userAdmin@AdminDeletePg'),
 ('User Manager', 'userAdmin@AdminDeletePortfolio'),
 ('User Manager', 'userAdmin@AdminDeleteRequirements'),
+('User Manager', 'userAdmin@AdminDeleteSlide'),
 ('User Manager', 'userAdmin@AdminDeleteTag'),
 ('User Manager', 'userAdmin@AdminDeleteVacancy'),
 ('User Manager', 'userAdmin@AdminDownloadFile'),
@@ -522,14 +563,20 @@ INSERT INTO `itemchildren` (`parent`, `child`) VALUES
 ('User Manager', 'userAdmin@AdminIndex'),
 ('User Manager', 'userAdmin@AdminInfo'),
 ('User Manager', 'userAdmin@AdminMain'),
+('User Manager', 'userAdmin@AdminPositionSlide'),
+('User Manager', 'userAdmin@AdminPositionVacancy'),
 ('User Manager', 'userAdmin@AdminProducts'),
 ('User Manager', 'userAdmin@AdminSaveEqText'),
 ('User Manager', 'userAdmin@AdminSaveEquipment'),
 ('User Manager', 'userAdmin@AdminSavePortfolio'),
 ('User Manager', 'userAdmin@AdminSaveProductsGroup'),
+('User Manager', 'userAdmin@AdminSaveSledePosition'),
 ('User Manager', 'userAdmin@AdminSaveTag'),
 ('User Manager', 'userAdmin@AdminsContacts'),
 ('User Manager', 'userAdmin@AdminService'),
+('User Manager', 'userAdmin@AdminUpdateAboutMaine'),
+('User Manager', 'userAdmin@AdminUpdateLarge'),
+('User Manager', 'userAdmin@AdminUpdatePlusMaine'),
 ('User Manager', 'userAdmin@AdminUpdatePortfolio'),
 ('User Manager', 'userAdmin@AdminUpdateService'),
 ('User Manager', 'userAdmin@AdminUpdateVacancy'),
@@ -595,6 +642,7 @@ INSERT INTO `items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('userAdmin@AdminAddCharge', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminAddRequirements', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminContacts', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminCreateSleder', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminCreateVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteCharge', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteEquipment', 0, NULL, NULL, 'N;'),
@@ -603,6 +651,7 @@ INSERT INTO `items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('userAdmin@AdminDeletePg', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeletePortfolio', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteRequirements', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeleteSlide', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteTag', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDownloadFile', 0, NULL, NULL, 'N;'),
@@ -610,14 +659,20 @@ INSERT INTO `items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('userAdmin@AdminIndex', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminInfo', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminMain', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminPositionSlide', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminPositionVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminProducts', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSaveEqText', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSaveEquipment', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSavePortfolio', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSaveProductsGroup', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminSaveSledePosition', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminSaveTag', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminsContacts', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminService', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminUpdateAboutMaine', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminUpdateLarge', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminUpdatePlusMaine', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminUpdatePortfolio', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminUpdateService', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminUpdateVacancy', 0, NULL, NULL, 'N;'),
