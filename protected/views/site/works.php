@@ -23,11 +23,14 @@
                     <span class="work-title"><?php echo $portfolio->title ?></span>
 
                     <div class="work-description">
-                        <div>Адрес</div>
-                        <span><?php echo $portfolio->address ?></span>
-
-                        <div>Площадь объекта</div>
-                        <span><?php echo $portfolio->area ?></span>
+                        <?php if (!empty($portfolio->address)): ?>
+                            <div>Адрес</div>
+                            <span><?php echo $portfolio->address ?></span>
+                        <?php endif; ?>
+                        <?php if (!empty($portfolio->area)): ?>
+                            <div>Площадь объекта</div>
+                            <span><?php echo $portfolio->area ?></span>
+                        <?php endif; ?>
                     </div>
                     <div class="anchor"></div>
                 </div>

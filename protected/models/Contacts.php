@@ -36,7 +36,7 @@ class Contacts extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('name, val', 'length', 'max' => 255),
+            array('name', 'length', 'max' => 255),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, name, val', 'safe', 'on' => 'search'),
@@ -89,9 +89,10 @@ class Contacts extends CActiveRecord
     {
 
         $contacts = array();
-        foreach (self::model()->findAll() as $val)
+        foreach (self::model()->findAll() as $val) {
             $contacts[$val->name] = $val->val;
 
+        }
         return $contacts;
 
     }

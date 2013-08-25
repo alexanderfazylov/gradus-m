@@ -1,3 +1,14 @@
+<h1>ПРЕИМУЩЕСТВА</h1>
+<form id="maine_large" class="classic_form">
+    <label>
+        Для выделениея абзаца, используйте разметку
+        <br/>&#60;p&#62;Абзац&#60;/p&#62;
+        <textarea name="Contacts[about_large]"
+                  style="width: 100%;height: 300px"><?php echo $about_large->val; ?></textarea>
+        <input type="submit" value="Сохранить" onclick="updateLarge();return false">
+    </label>
+</form>
+<hr/>
 <h1>Вакансии</h1>
 <h2>Создание вакансии</h2>
 <form id="vacansy" class="classic_form">
@@ -92,6 +103,12 @@
 
 
         <div class="delete" onclick="deleteVacancy(<?php echo $vacancy->id ?>)">удалить</div>
+        <?php if ($vacancy->position == 1) {
+            $pos_text = "Отобразить";
+        } else {
+            $pos_text = "Скрыть";
+        }?>
+        <div class="position" onclick="positionVacancy(<?php echo $vacancy->id ?>)"><?php echo $pos_text; ?></div>
     </div>
 <?php endforeach; ?>
 
@@ -197,6 +214,23 @@
         })
         ;
     }
+    function positionVacancy(id) {
+        $.ajax({
+            type: "POST",
+            url: '/userAdmin/admin/positionVacancy?id=' + id,
+            dataType: "json",
+            success: function (data) {
+                if (data == null) {
+                    alert('Ошибка. Попробуйте перезагрузить страницу.');
+                } else {
+                    alert('Сохранено');
+                    location.reload();
+                }
+
+            }
+        })
+        ;
+    }
     function deleteRequirements(id) {
         $.ajax({
             type: "POST",
@@ -213,5 +247,23 @@
             }
         })
         ;
+    }
+
+    function updateLarge() {
+        $.ajax({
+            type: "POST",
+            url: '/userAdmin/admin/updateLarge',
+            dataType: "json",
+            data: $('#maine_large').serialize(),
+            success: function (data) {
+                if (data == null) {
+                    alert('Ошибка. Попробуйте перезагрузить страницу.');
+                } else {
+                    alert('Сохранено');
+                    location.reload();
+                }
+
+            }
+        });
     }
 </script>

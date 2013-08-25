@@ -2,21 +2,22 @@
     <!-- Main banner -->
     <div id="rotator">
         <ul>
-            <li class="show">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/banner1.jpg"/>
-            </li>
-            <li>
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/banner2.jpg"/>
-            </li>
-            <li>
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/banner3.jpg"/>
-            </li>
-            <li>
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/banner4.jpg"/>
-            </li>
-            <li>
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/banner5.jpg"/>
-            </li>
+            <?php $index = 1; ?>
+            <?php foreach ($slides as $slide): ?>
+                <?php if ($index == 1): ?>
+                    <?php $class = 'show'; ?>
+                <?php else: ?>
+                    <?php $class = ''; ?>
+                <?php endif; ?>
+
+                <?php if (isset($slide->uploadedfiles->name)): ?>
+                    <li class="<?php echo $class; ?>">
+                        <img
+                            src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/<?php echo $slide->uploadedfiles->name; ?>"/>
+                    </li>
+                    <?php $index++; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </ul>
     </div>
     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/banner-shadow.png"/>
@@ -27,7 +28,7 @@
             <td class="delivery">Бесплатная<br/>доставка</td>
             <td class="installation">Установка<br/>и обслуживание</td>
             <td class="garanty">Гарантия 5 лет</td>
-            <td class="hotline">Горячая линия<br/>8 (903) 313-33-70</td>
+            <td class="hotline">Горячая линия<br/><?php echo $this->contacts['tel_hotline']; ?></td>
         </tr>
     </table>
 
@@ -83,26 +84,12 @@
         <tr>
             <td width="450">
                 <h2 class="main_title">О компании</h2>
-
-                <p>Компания ООО «Теплосинтез» Основана в 2006 году году.</p>
-
-                <p>Наша компания оказывает услуги по проектированию, монтажу и дальнейшему сервисному обслуживанию
-                    систем отопления, водоснабжения и автоматизации любого уровня сложности. Кроме того мы готовы
-                    оказать консультацию по подбору оптимальных материалов и оборудованию, соответствующих вашим
-                    потребностям и возможностям, что является не меньшей проблемой при недостаточных знаниях современных
-                    технологических возможностей и рынка сантехнического оборудования.</p>
+                <?php echo $this->contacts['about_maine']; ?>
             </td>
             <td width="430">
                 <h2 class="main_title">Преимущества</h2>
                 <ul class="standart-ul">
-                    <li>профессиональные знания и опыт – десятки выполненных объектов различного уровня сложности</li>
-                    <li>высокий уровень сервиса – мы всегда работаем для клиента</li>
-                    <li>высокое качество выполненных работ</li>
-                    <li>динамичность и гибкость</li>
-                    <li>применение в работе исключительно качественных материалов оборудования (Viessman, Vaillant,
-                        Buderus, Uponor, Purmo, Far)
-                    </li>
-                    <li>гарантия на все выполненные работы 5 лет</li>
+                    <?php echo $this->contacts['about_plus']; ?>
                 </ul>
             </td>
         </tr>

@@ -200,6 +200,15 @@ input[type="email"] {
   text-decoration: underline;
 }
 
+.position {
+  color: blue;
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .delete:hover {
   text-decoration: none;
 }
@@ -343,10 +352,79 @@ a {
         width: 95%;
         display: block;
       }
-      textarea{
+      textarea {
         height: 100px;
         width: 95%;
       }
     }
   }
+}
+
+.slider {
+  height: 250px;
+  border: 1px solid black;
+  overflow-x: scroll;
+  padding-top: 15px;
+  .slide {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background: #e1e1e1;
+    margin-right: 20px;
+    position: relative;
+  }
+}
+
+.slider_button {
+  padding-top: 20px;
+  input {
+    margin: 0 0 0 10px;
+    float: right;
+  }
+}
+
+.slide_button {
+  position: absolute;
+  height: 30px;
+  width: 50px;
+  right: 0;
+  top: 5px;
+}
+
+.delete_slide {
+  background: url("../img/close_delete.gif") repeat scroll 0 0 transparent;
+  cursor: pointer;
+  display: inline-block;
+  height: 11px;
+  width: 11px;
+}
+
+.slide_position_2 .position_side {
+  background: red;
+}
+
+.slide_position_1 .position_side {
+  background: green;
+}
+
+.position_side {
+  cursor: pointer;
+  display: inline-block;
+  height: 11px;
+  width: 11px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-right: 8px;
+}
+
+.ui-state-default {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.slide img {
+  display: block;
+  width: 94px;
+  height: 40px;
 }

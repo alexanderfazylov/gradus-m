@@ -6,36 +6,21 @@ class SiteController extends Controller
     public $layout = 'main';
     public $contacts;
 
-    /**
-     * Declares class-based actions.
-     */
-    public function actions()
-    {
-        return array( // captcha action renders the CAPTCHA image displayed on the contact page
-//        'captcha' => array(
-//            'class' => 'CCaptchaAction',
-//            'backColor' => 0xFFFFFF,
-//        ),
-            // page action renders "static" pages stored under 'protected/views/site/pages'
-            // They can be accessed via: index.php?r=site/page&view=FileName
-//        'page' => array(
-//            'class' => 'CViewAction',
-//        ),
-        );
-    }
 
     public function actionIndex()
     {
-
+        $criteria = new CDbCriteria();
+        $criteria->order = 't.order ASC';
+        $slides = Slider::model()->findAllByAttributes(array('position' => Slider::POSION_SHOW), $criteria);
         $service = Service::model()->findAll();
-        MyHelper::render($this, '/site/index', array('service' => $service), 'Главная');
+        MyHelper::render($this, '/site/index', array('service' => $service, 'slides' => $slides), 'Главная');
     }
 
     public function actionAbout()
     {
-        $vacancys = Vacancy::model()->findAll(
-            array('order' => 't.order ASC,`order` ASC')
-        );
+        $criteria = new CDbCriteria();
+        $criteria->order = 't.order ASC';
+        $vacancys = Vacancy::model()->findAllByAttributes(array('position' => 2));
 
         MyHelper::render($this, '/site/about', array('vacancys' => $vacancys), 'О компании');
     }
