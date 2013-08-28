@@ -422,8 +422,10 @@ class AdminController extends Controller
 
     public function actionSaveEqText($id)
     {
+
         $equipment = Equipment::model()->findByPk($id);
-        $equipment->text = $_POST['text'];
+        $equipment->text = $_POST['Equipment']['text'];
+        $equipment->adres = $_POST['Equipment']['adres'];
         $equipment->save(false);
         echo json_encode(array('status' => 'succses'));
     }
@@ -479,6 +481,113 @@ class AdminController extends Controller
 
     }
 
+    public function actionDownloadMiniImgId($id)
+    {
+        $width = 300;
+        $height = 100;
+
+        $model = Equipment::model()->findByPk($id);
+        $uf = DIRECTORY_SEPARATOR;
+        $basePath = Yii::app()->basePath . "{$uf}..{$uf}uploads{$uf}";
+        if (!file_exists($basePath))
+            mkdir($basePath);
+
+        $allowedExtensions = $array = array("png", "jpg", "jpeg", "gif");
+        $sizeLimit = 5 * 1024 * 1024;
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+        $result = $uploader->handleUpload($basePath);
+
+
+        if (!empty($result['error'])) {
+            echo json_encode(array('status' => 'fail', 'error' => $result['error']));
+            Yii::app()->end();
+        }
+
+        $file = array(
+            'name' => $result['filename'],
+            'orig_name' => $result['user_filename'],
+            'size' => $result['size'],
+            'ext' => $result['ext'],
+        );
+
+        $Uploadedfiles = new Uploadedfiles();
+        $Uploadedfiles->attributes = $file;
+        if (!$Uploadedfiles->save()) {
+            echo json_encode(array('status' => 'fail', 'error' => 'Ошибка, сохранение не произошло 1'));
+            Yii::app()->end();
+        }
+        $model->mini_img_id = $Uploadedfiles->id;
+        $model->save(false);
+
+
+        $img = Yii::app()->ih
+            ->load($basePath . $Uploadedfiles->name);
+
+        if ($img->width > $width)
+            $img->resize($width, $height)
+                ->save($basePath . $Uploadedfiles->name);
+        if ($img->height > $height)
+            $img->resize($width, $height)
+                ->save($basePath . $Uploadedfiles->name);
+
+        $result['file_id'] = $Uploadedfiles->id;
+        echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+    }
+
+    public function actionDownloadLargeImgId($id)
+    {
+        $width = 620;
+        $height = 277;
+
+        $model = Equipment::model()->findByPk($id);
+        $uf = DIRECTORY_SEPARATOR;
+        $basePath = Yii::app()->basePath . "{$uf}..{$uf}uploads{$uf}";
+        if (!file_exists($basePath))
+            mkdir($basePath);
+
+        $allowedExtensions = $array = array("png", "jpg", "jpeg", "gif");
+        $sizeLimit = 5 * 1024 * 1024;
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+        $result = $uploader->handleUpload($basePath);
+
+
+        if (!empty($result['error'])) {
+            echo json_encode(array('status' => 'fail', 'error' => $result['error']));
+            Yii::app()->end();
+        }
+
+        $file = array(
+            'name' => $result['filename'],
+            'orig_name' => $result['user_filename'],
+            'size' => $result['size'],
+            'ext' => $result['ext'],
+        );
+
+        $Uploadedfiles = new Uploadedfiles();
+        $Uploadedfiles->attributes = $file;
+        if (!$Uploadedfiles->save()) {
+            echo json_encode(array('status' => 'fail', 'error' => 'Ошибка, сохранение не произошло 1'));
+            Yii::app()->end();
+        }
+        $model->large_img_id = $Uploadedfiles->id;
+        $model->save(false);
+
+        $img = Yii::app()->ih
+            ->load($basePath . $Uploadedfiles->name);
+
+        if ($img->width > $width)
+            $img->resize($width, $height)
+                ->save($basePath . $Uploadedfiles->name);
+        if ($img->height > $height)
+            $img->resize($width, $height)
+                ->save($basePath . $Uploadedfiles->name);
+
+
+        $result['file_id'] = $Uploadedfiles->id;
+        echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+
+    }
+
     public function actionUpdateLarge()
     {
         $contact = Contacts::model()->findByAttributes(array('name' => 'about_large'));
@@ -486,5 +595,21 @@ class AdminController extends Controller
         $contact->save();
         echo json_encode(array('status' => 'succses'));
 
+    }
+
+    public function actionDeleteLargeImg($id)
+    {
+        $model = Equipment::model()->findByPk($id);
+        $model->large_img_id = NULL;
+        $model->save(false);
+        echo json_encode(array('status' => 'succses'));
+    }
+
+    public function actionDeleteMiniImg($id)
+    {
+        $model = Equipment::model()->findByPk($id);
+        $model->mini_img_id = NULL;
+        $model->save(false);
+        echo json_encode(array('status' => 'succses'));
     }
 }
