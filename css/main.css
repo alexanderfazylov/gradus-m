@@ -982,3 +982,6 @@ table#about td:first-child {
 .br_table{
   padding-right: 40px;
 }
+.company > a{
+    display: block;
+}

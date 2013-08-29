@@ -47,7 +47,7 @@
 
 <?php foreach ($equipments as $equipment): ?>
     <div class="block_port">
-        <a href="/userAdmin/admin/info?id=<?php echo $equipment->id; ?>">Создать/Изменить Описание продукта</a>
+        <a href="/userAdmin/admin/info?id=<?php echo $equipment->id; ?>" class="create-updete-info">Создать/Изменить Описание продукта</a>
 
         <form id="equipment_<?php echo $equipment->id; ?>" class="classic_form">
             <label>
