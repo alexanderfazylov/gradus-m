@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 24 2013 г., 12:42
+-- Время создания: Авг 28 2013 г., 18:17
 -- Версия сервера: 5.5.24-log
 -- Версия PHP: 5.3.13
 
@@ -171,6 +171,9 @@ CREATE TABLE IF NOT EXISTS `gr_equipment` (
   `pg_id` int(10) DEFAULT '0',
   `file_id` int(10) DEFAULT '0',
   `text` text,
+  `adres` varchar(255) DEFAULT NULL,
+  `mini_img_id` int(255) DEFAULT NULL,
+  `large_img_id` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
@@ -178,25 +181,8 @@ CREATE TABLE IF NOT EXISTS `gr_equipment` (
 -- Дамп данных таблицы `gr_equipment`
 --
 
-INSERT INTO `gr_equipment` (`id`, `name`, `pg_id`, `file_id`, `text`) VALUES
-(6, 'asdasdasd', 2, 49, '                asdasd<br><br><ul><li>asdasdasdasd</li><li>asdasdasdasd</li><li>asdasdasdasd</li></ul><p><br></p><br><img alt="asdasd" src="http://gradus/uploads/a0d085c4f7a71222896c9c183db1d552.jpg" height="652" align="none" width="1518"><br>'),
-(7, 'asd23442434', 2, 74, NULL),
-(8, '2342342', 2, 33, NULL),
-(9, '23234', 3, 34, NULL),
-(10, '345345', 3, 35, NULL),
-(11, '567567', 3, 36, NULL),
-(12, '567567', 4, 37, NULL),
-(13, '756756', 5, 42, NULL),
-(14, 'yugjgh', 5, 38, NULL),
-(15, '5656uygj', 6, 39, NULL),
-(16, 'ghjghjghjghj', 7, 41, NULL),
-(17, 'ghjghjghjj', 8, 40, NULL),
-(18, '111111111', 2, 48, NULL),
-(19, '22222222', 2, 47, NULL),
-(20, '333333333', 2, 46, NULL),
-(21, '44444444444', 2, 45, NULL),
-(22, '555555555', 2, 44, NULL),
-(23, '666666666', 2, 43, NULL);
+INSERT INTO `gr_equipment` (`id`, `name`, `pg_id`, `file_id`, `text`, `adres`, `mini_img_id`, `large_img_id`) VALUES
+(6, 'asdasdasd', 2, 49, 'asda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdasasda dasdas', 'http://gradus/userAdmin/admin/info?id=6', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -287,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `gr_service` (
   `pay` varchar(255) DEFAULT NULL,
   `val` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Дамп данных таблицы `gr_service`
@@ -316,19 +302,6 @@ CREATE TABLE IF NOT EXISTS `gr_slider` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
-
---
--- Дамп данных таблицы `gr_slider`
---
-
-INSERT INTO `gr_slider` (`order`, `position`, `file_id`, `id`) VALUES
-(4, 1, 71, 2),
-(5, 1, 72, 3),
-(2, 1, 69, 4),
-(3, 1, 70, 5),
-(1, 1, 73, 6),
-(0, 2, 0, 7),
-(0, 2, 0, 8);
 
 -- --------------------------------------------------------
 
@@ -366,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `gr_uploadedfiles` (
   `size` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `invisible` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=75 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=85 ;
 
 --
 -- Дамп данных таблицы `gr_uploadedfiles`
@@ -446,7 +419,17 @@ INSERT INTO `gr_uploadedfiles` (`id`, `name`, `orig_name`, `ext`, `size`, `invis
 (71, '184ecf351815cb8826de542ed919340a.jpg', 'banner3.jpg', 'jpg', '240240', NULL),
 (72, '7788f0517f3dad460720c33bb3fba942.jpg', 'banner4.jpg', 'jpg', '192302', NULL),
 (73, '027d0f20936148d8f29292479989c0f1.jpg', 'banner5.jpg', 'jpg', '275272', NULL),
-(74, '1cbc1152a23eb6fd366d474347bd50a2.jpg', 'banner2.jpg', 'jpg', '365631', NULL);
+(74, '1cbc1152a23eb6fd366d474347bd50a2.jpg', 'banner2.jpg', 'jpg', '365631', NULL),
+(75, '508db95e70424f81714671b648b17a03.jpg', 'banner1.jpg', 'jpg', '221571', NULL),
+(76, 'c69fe1a35f613ef4fbbf9d7a7eaca59d.jpg', 'banner3.jpg', 'jpg', '240240', NULL),
+(77, 'e31de4838c8c3c71224d7c1ceb057a70.jpg', 'banner5.jpg', 'jpg', '275272', NULL),
+(78, '3463274af7f7333ede39ce4ca4884ab0.jpg', 'banner2.jpg', 'jpg', '365631', NULL),
+(79, 'a64a148e494fd8c63e298ceeb34673da.jpg', 'banner5.jpg', 'jpg', '275272', NULL),
+(80, '84f4763aee8834d5f7478719af356070.jpg', 'banner2.jpg', 'jpg', '365631', NULL),
+(81, '4ddee8ef1bee01eaf1e5e6e0f4029c8b.jpg', 'banner5.jpg', 'jpg', '275272', NULL),
+(82, '408ab6ccf294bac2fc667f68233cff00.jpg', 'banner2.jpg', 'jpg', '365631', NULL),
+(83, 'bfd62aca775bfa734db52d44dc187514.jpg', 'banner3.jpg', 'jpg', '240240', NULL),
+(84, '19c2c1ee5d81df8666ae7d7f5e0b6c37.jpg', 'banner2.jpg', 'jpg', '365631', NULL);
 
 -- --------------------------------------------------------
 
@@ -552,6 +535,8 @@ INSERT INTO `itemchildren` (`parent`, `child`) VALUES
 ('User Manager', 'userAdmin@AdminDeleteEquipment'),
 ('User Manager', 'userAdmin@AdminDeleteFileEquipment'),
 ('User Manager', 'userAdmin@AdminDeleteFilePortfolio'),
+('User Manager', 'userAdmin@AdminDeleteLargeImg'),
+('User Manager', 'userAdmin@AdminDeleteMiniImg'),
 ('User Manager', 'userAdmin@AdminDeletePg'),
 ('User Manager', 'userAdmin@AdminDeletePortfolio'),
 ('User Manager', 'userAdmin@AdminDeleteRequirements'),
@@ -560,6 +545,8 @@ INSERT INTO `itemchildren` (`parent`, `child`) VALUES
 ('User Manager', 'userAdmin@AdminDeleteVacancy'),
 ('User Manager', 'userAdmin@AdminDownloadFile'),
 ('User Manager', 'userAdmin@AdminDownloadImg'),
+('User Manager', 'userAdmin@AdminDownloadLargeImgId'),
+('User Manager', 'userAdmin@AdminDownloadMiniImgId'),
 ('User Manager', 'userAdmin@AdminIndex'),
 ('User Manager', 'userAdmin@AdminInfo'),
 ('User Manager', 'userAdmin@AdminMain'),
@@ -648,6 +635,8 @@ INSERT INTO `items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('userAdmin@AdminDeleteEquipment', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteFileEquipment', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteFilePortfolio', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeleteLargeImg', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDeleteMiniImg', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeletePg', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeletePortfolio', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDeleteRequirements', 0, NULL, NULL, 'N;'),
@@ -656,6 +645,8 @@ INSERT INTO `items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('userAdmin@AdminDeleteVacancy', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDownloadFile', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminDownloadImg', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDownloadLargeImgId', 0, NULL, NULL, 'N;'),
+('userAdmin@AdminDownloadMiniImgId', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminIndex', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminInfo', 0, NULL, NULL, 'N;'),
 ('userAdmin@AdminMain', 0, NULL, NULL, 'N;'),
