@@ -1,5 +1,5 @@
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.md5.js"></script>
-<?php $this->pageTitle = Yii::app()->name . ' - Login'; ?>
+<?php $this->pageTitle = Yii::app()->name . ' - Администраторская панель'; ?>
 <div class="site_login">
     <h1>Авторизуйтесь.</h1>
 
