@@ -199,14 +199,16 @@ class AdminController extends Controller
 
     public function actionSaveEquipment($id)
     {
+
         if (isset($_POST['Equipment'])) {
             if (empty($id)) {
                 $model = new Equipment();
             } else {
+
                 $model = Equipment::model()->findByPk($id);
             }
             $model->attributes = $_POST['Equipment'];
-            if ($model->save()) {
+            if ($model->save(false)) {
                 echo json_encode(array('status' => 'succses'));
             }
         }

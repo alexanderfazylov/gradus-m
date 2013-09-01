@@ -38,7 +38,7 @@ class Equipment extends CActiveRecord
         // will receive user inputs.
         return array(
             array('pg_id, file_id', 'numerical', 'integerOnly' => true),
-            array('name', 'length, adres', 'max' => 255),
+            array('name, adres, mini_img_id, large_img_id', 'length', 'max'=>255),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, name, pg_id, file_id, text, adres', 'safe', 'on' => 'search'),
@@ -69,7 +69,10 @@ class Equipment extends CActiveRecord
             'name' => 'Name',
             'pg_id' => 'Pg',
             'file_id' => 'File',
-            'text' => 'text'
+            'text' => 'text',
+            'adres' => 'adres',
+            'mini_img_id' => 'mini_img_id',
+            'large_img_id' => 'large_img_id'
         );
     }
 
