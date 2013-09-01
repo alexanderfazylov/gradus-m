@@ -12,7 +12,7 @@
                 </div>
             </td>
             <td class="price">
-                от <?php echo $service[0]->pay; ?> руб.
+                <?php if (!empty($service[0]->pay)) { echo 'от '.$service[0]->pay.' руб.'; } ?>
             </td>
         </tr>
         <tr>
@@ -26,7 +26,7 @@
                 </div>
             </td>
             <td class="price">
-                от <?php echo $service[1]->pay; ?> руб.
+                <?php if (!empty($service[1]->pay)) { echo 'от '.$service[1]->pay.' руб.'; } ?>
             </td>
         </tr>
         <tr>
@@ -41,7 +41,7 @@
                 </div>
             </td>
             <td class="price">
-                от <?php echo $service[2]->pay; ?> руб. м<span class="sup">2</span>
+                <?php if (!empty($service[2]->pay)) { echo 'от '.$service[2]->pay.' руб.'; } ?>
             </td>
         </tr>
         <tr>
@@ -55,7 +55,7 @@
                 </div>
             </td>
             <td class="price">
-                от <?php echo $service[3]->pay; ?> руб.
+                <?php if (!empty($service[3]->pay)) { echo 'от '.$service[3]->pay.' руб.'; } ?>
             </td>
         </tr>
         <tr>
@@ -69,7 +69,7 @@
                 </div>
             </td>
             <td class="price">
-                от <?php echo $service[4]->pay; ?> руб. м<span class="sup">2</span>
+                <?php if (!empty($service[4]->pay)) { echo 'от '.$service[4]->pay.' руб. м<span class="sup">2</span>'; } ?>
             </td>
         </tr>
         <tr>
@@ -83,7 +83,7 @@
                 </div>
             </td>
             <td class="price">
-                от <?php echo $service[5]->pay; ?> руб.
+                <?php if (!empty($service[5]->pay)) { echo 'от '.$service[5]->pay.' руб.'; } ?>
             </td>
         </tr>
         <tr>
@@ -97,7 +97,7 @@
                 </div>
             </td>
             <td class="price">
-                от <?php echo $service[6]->pay; ?> руб.
+                <?php if (!empty($service[6]->pay)) { echo 'от '.$service[6]->pay.' руб.'; } ?>
             </td>
         </tr>
         <tr>
@@ -111,7 +111,7 @@
                 </div>
             </td>
             <td class="price">
-                от <?php echo $service[7]->pay; ?> руб. м<span class="sup">2</span>
+                <?php if (!empty($service[7]->pay)) { echo 'от '.$service[7]->pay.' руб.'; } ?>
             </td>
         </tr>
     </table>
