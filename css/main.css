@@ -272,7 +272,6 @@ input[type='submit']:disabled, input[type='submit']:disabled:hover {
 
 .phone-number {
   display: inline;
-  border-bottom: 1px dashed;
 }
 
 /* Menu */

@@ -53,7 +53,7 @@
                     <input type="hidden" name="Requirements[vacancy_id]" value="<?php echo $vacancy->id ?>">
                     <label>
                             <span>
-                                 Обязанности
+                                 Требования
                             </span>
                         <textarea name="Requirements[text]"></textarea>
 
@@ -78,7 +78,7 @@
                     <input type="hidden" name="Charge[vacancy_id]" value="<?php echo $vacancy->id ?>">
                     <label>
                             <span>
-                                 Требования
+                                 Обязанности
                             </span>
                         <textarea name="Charge[text]"></textarea>
 

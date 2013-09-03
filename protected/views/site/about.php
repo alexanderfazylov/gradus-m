@@ -51,7 +51,7 @@
                             <td>
                                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/benefits-hotline.png"/>
                             </td>
-                            <td>Горячая линия<br/>8 (903) 313-33-70</td>
+                            <td>Горячая линия<br/><?php echo $this->contacts['tel_hotline']; ?></td>
                         </tr>
                     </table>
                 </td>
