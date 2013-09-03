@@ -23,10 +23,13 @@
                 <a name='<?php echo $equipment->name ?>'></a>
                 <div class="company">
                     <?php if (!empty($equipment->mini_img)): ?>
-                        <a href="<?php echo $equipment->adres; ?>">
-                            <img src="../../uploads/<?php echo $equipment->mini_img->name; ?>"/>
-                        </a>
+                        <img src="../../uploads/<?php echo $equipment->mini_img->name; ?>"/><br/>
                     <?php endif; ?>
+
+                    <?php if (!empty($equipment->adres)): ?>
+                        <a href="<?php echo $equipment->adres; ?>"><?php echo $equipment->adres; ?></a><br/>
+                    <?php endif; ?>
+
                     <?php echo $equipment->text ?>
                     <?php if (!empty($equipment->large_img)): ?>
                         <img src="../../uploads/<?php echo $equipment->large_img->name; ?>"/>
