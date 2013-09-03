@@ -64,7 +64,7 @@
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#automation"><?php echo $service[4]->name; ?></a>
                 </td>
                 <td width="131">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-drainage-installation.png"/>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-maintenance-of-boiler-equipment.png"/>
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/services#sanitation"><?php echo $service[5]->name; ?></a>
                 </td>
                 <td width="109">
