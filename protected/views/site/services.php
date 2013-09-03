@@ -74,7 +74,7 @@
         </tr>
         <tr>
             <td>
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-drainage-installation.png"/>
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/services-maintenance-of-boiler-equipment.png"/>
 
                 <div class="servise-description">
                     <a name="sanitation"></a>
