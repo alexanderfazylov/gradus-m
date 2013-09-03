@@ -984,3 +984,10 @@ table#about td:first-child {
 .company > a{
     display: block;
 }
+.my_logo_equipment{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.my_link_address{
+
+}
