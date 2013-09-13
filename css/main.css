@@ -245,7 +245,7 @@ input[type='submit']:disabled, input[type='submit']:disabled:hover {
 
 .logo {
   display: block;
-  width: 212px;
+  width: 368px;
   height: 43px;
   background: url("../img/logo.png") no-repeat;
 }
