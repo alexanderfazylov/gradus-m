@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -15,7 +15,7 @@
         <div id="top-line">
             <div class="top-contacts">
                 <div class="description">Телефон для связи</div>
-                <div class="phone"><span class="code">8 (843) </span><span class="phone-number"><?php echo $this->contacts['tel']; ?></span></div>
+                <div class="phone"><span class="code"></span><span class="phone-number"><?php echo $this->contacts['tel']; ?></span></div>
             </div>
             <a class="logo" href="<?php echo $this->createAbsoluteUrl('index'); ?>"></a>
         </div>
@@ -78,7 +78,7 @@
             </td>
             <td>
                 Тел. горячей линии:  <?php echo $this->contacts['tel_hotline']; ?><br/>
-                Тел. мобильный:  <?php echo $this->contacts['tel_handy']; ?>
+                <?php if(!empty($this->contacts['tel_handy'])){echo "Тел. мобильный: ".$this->contacts['tel_handy'];} ?>
             </td>
         </tr>
     </table>

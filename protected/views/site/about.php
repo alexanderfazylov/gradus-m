@@ -1,4 +1,4 @@
-<div class="about">
+﻿<div class="about">
     <div class="section">
         <a name="about"></a>
         <h2>О компании</h2>
@@ -107,18 +107,30 @@
             <tr>
                 <td class="contact-label">Адрес</td>
                 <td class="contact-info"><?php echo $this->contacts['anschrift']; ?></td>
-                <td class="contact-label">Тел. горячей линии</td>
-                <td class="contact-info"><?php echo $this->contacts['tel_hotline']; ?></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td class="contact-label">Телефон</td>
                 <td class="contact-info"><?php echo $this->contacts['tel']; ?></td>
-                <td class="contact-label">Тел. мобильный</td>
-                <td class="contact-info"><?php echo $this->contacts['tel_handy']; ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="contact-label">Тел. горячей линии</td>
+                <td class="contact-info"><?php echo $this->contacts['tel_hotline']; ?></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td class="contact-label">Электронная почта</td>
                 <td><a href="<?php echo $this->contacts['email']; ?>"><?php echo $this->contacts['email']; ?></a></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="contact-label"><?php if(!empty($this->contacts['tel_handy'])){echo "Тел. мобильный";} ?></td>
+                <td class="contact-info"><?php echo $this->contacts['tel_handy']; ?></td>
                 <td></td>
                 <td></td>
             </tr>
