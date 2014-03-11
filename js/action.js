@@ -1,6 +1,29 @@
 $('html').click(function () {
     closeInfoPanel();
 });
+function removeHash() {
+    var scrollV, scrollH, loc = window.location;
+    if ("pushState" in history)
+        history.pushState("", document.title, loc.pathname + loc.search);
+    else {
+        // Prevent scrolling by storing the page's current scroll offset
+        scrollV = document.body.scrollTop;
+        scrollH = document.body.scrollLeft;
+
+        loc.hash = "";
+
+        // Restore the scroll offset, should be flicker free
+        document.body.scrollTop = scrollV;
+        document.body.scrollLeft = scrollH;
+    }
+}
+function openCallback() {
+
+    if (location.hash == '#callback') {
+        $('.modal').modal('show');
+    }
+
+}
 
 $(function () {
     $(".vendor").find("span").hide().end().hover(function () {
@@ -19,6 +42,20 @@ $(function () {
     $('#full-menu a').click(function () {
         closeInfoPanel();
     });
+    $('.callback-link').click(function () {
+
+    });
+
+
+    openCallback();
+    History.Adapter.bind(window, 'popstate', function () {
+        openCallback();
+    });
+
+    $('.modal').on('hidden', function () {
+        removeHash();
+    })
+
 });
 
 function theRotator() {
