@@ -1,5 +1,6 @@
 <?php 
  return array(
+	'SiteCaptcha',
 	'SiteIndex',
 	'SiteAbout',
 	'SiteEquipment',
@@ -10,6 +11,7 @@
 	'SiteContacts',
 	'SiteError',
 	'SiteLogin',
-	'SiteLogout'
+	'SiteLogout',
+	'SiteCallback'
 );
 ?>
