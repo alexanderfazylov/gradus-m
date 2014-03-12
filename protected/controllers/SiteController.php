@@ -6,6 +6,27 @@ class SiteController extends Controller
     public $layout = 'main';
     public $contacts;
 
+    public function accessRules()
+    {
+        return array(
+            array('allow',
+                'actions' => array('captcha'),
+                'users' => array('*'),
+            ),
+            array('deny',
+                'users' => array('*'),
+            ),
+        );
+    }
+
+    public function actions()
+    {
+        return array(
+            'captcha' => array(
+                'class' => 'CCaptchaAction',
+            ),
+        );
+    }
 
     public function actionIndex()
     {
@@ -106,4 +127,25 @@ class SiteController extends Controller
         $this->redirect(Yii::app()->homeUrl);
     }
 
+    public function actionCallback()
+    {
+        $model = new Callback;
+        $response = array(
+            'status' => 'success',
+        );
+        if (isset($_POST['Callback'])) {
+            $model->attributes = $_POST['Callback'];
+            if (!$model->validate()) {
+                $response = array(
+                    'status' => 'error',
+                    'messages' => $model->getErrors(),
+                );
+            } else {
+                $model->sendMail();
+            }
+        }
+
+        echo CJSON::encode($response);
+
+    }
 }

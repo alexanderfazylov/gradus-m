@@ -1,6 +1,106 @@
 $('html').click(function () {
     closeInfoPanel();
 });
+function removeHash() {
+    var scrollV, scrollH, loc = window.location;
+    if ("pushState" in history)
+        history.pushState("", document.title, loc.pathname + loc.search);
+    else {
+        // Prevent scrolling by storing the page's current scroll offset
+        scrollV = document.body.scrollTop;
+        scrollH = document.body.scrollLeft;
+
+        loc.hash = "";
+
+        // Restore the scroll offset, should be flicker free
+        document.body.scrollTop = scrollV;
+        document.body.scrollLeft = scrollH;
+    }
+}
+function openCallback() {
+
+    if (location.hash == '#callback') {
+        $('.modal').modal('show');
+    }
+
+}
+var button = {
+    disable: function ($el) {
+        $el.addClass('loading');
+        $el.attr('disabled', 'disabled');
+    },
+    undisable: function ($el) {
+        $el.removeClass('loading');
+        $el.removeAttr('disabled');
+    }
+};
+$.fn.ajaxFormSubmit = function (success, complete, validator) {
+
+
+    var data, url, $form, $element;
+
+    //=============================//
+
+    $element = $(this);
+    $form = $element.parents('form');
+
+    if ($form.length == 0) {
+        $form = $('#form-' + $element.attr('id'));
+        if ($form.length == 0) {
+            alert('Ошибка в html. Не найдено формы.');
+            return false;
+        }
+    }
+
+
+    data = $form.serialize();
+    url = $form.attr('action')
+
+
+    button.disable($element);
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        dataType: 'json',
+        data: data,
+        success: function (data) {
+
+            if (data != null)
+                if (data.status === 'success') {
+
+                    if (typeof success !== "undefined") {
+                        success(data);
+                    }
+
+                } else {
+
+                    if (typeof validator !== "undefined") {
+                        validator(data);
+                    } else {
+                        for (key in data.message) {
+                            alert(data.message[key]);
+                        }
+                    }
+                }
+
+        },
+        complete: function () {
+            button.undisable($element);
+            if (typeof complete !== "undefined") {
+                complete();
+            }
+        },
+        error: function () {
+            button.undisable($element);
+            alert("Непредвиденная ошибка");
+        }
+
+    });
+
+    return $element;
+
+};
 
 $(function () {
     $(".vendor").find("span").hide().end().hover(function () {
@@ -19,6 +119,48 @@ $(function () {
     $('#full-menu a').click(function () {
         closeInfoPanel();
     });
+    $('.callback-link').click(function () {
+
+    });
+    $('#callback').click(function () {
+        var success = function () {
+            $('.modal').hide();
+            $form = $('.modal form');
+            $form.find('[type="text"]').val('');
+            $form.find('textarea').val('');
+        };
+
+        var complete = function () {
+        };
+
+        var validator = function (data) {
+            $('.has-error').removeClass('has-error');
+            $('.error_msg').remove();
+            //clean
+            $.each(data.messages, function (attribute, messages) {
+                $.each(messages, function (i, msg) {
+                    $row = $('#Callback_' + attribute)
+                        .parents('.row')
+                        .addClass('has-error');
+                    $row.find('.right-cell').append("<div class='error_msg'>" + msg + "</div>");
+                });
+            });
+        };
+
+        $(this).ajaxFormSubmit(success, complete, validator);
+    });
+
+
+    openCallback();
+    History.Adapter.bind(window, 'popstate', function () {
+        openCallback();
+    });
+
+    $('.modal').on('hidden', function () {
+        removeHash();
+    });
+
+
 });
 
 function theRotator() {
