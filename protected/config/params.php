@@ -6,6 +6,6 @@ return array(
         "host" => "smtp.yandex.ru",
         "user" => "atpp.16mb@yandex.ru",
         "password" => "7a8a7a8a",
-        "eventer" => "info@gradus-m.ru"
+        "eventer" => "alexander@fazylov.ru"
     )
 );
