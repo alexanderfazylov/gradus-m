@@ -103,7 +103,7 @@
 </div>
 
 <!-- Yandex.Metrika counter -->
-<?php if (false): ?>
+<?php if (true): ?>
     <script type="text/javascript">
         (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {

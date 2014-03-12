@@ -1079,3 +1079,7 @@ table#about td:first-child {
     border: none;
     outline: none;
 }
+
+.modal-scrollable {
+    z-index: 1;
+}
