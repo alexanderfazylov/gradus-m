@@ -142,7 +142,7 @@ $(function () {
                     $row = $('#Callback_' + attribute)
                         .parents('.row')
                         .addClass('has-error');
-                    $row.append("<div class='error_msg'>" + msg + "</div>");
+                    $row.find('.right-cell').append("<div class='error_msg'>" + msg + "</div>");
                 });
             });
         };
