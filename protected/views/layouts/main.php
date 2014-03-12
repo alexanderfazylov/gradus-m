@@ -6,7 +6,7 @@
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
-<div class="modal fade">
+<div class="modal fade" data-width="600">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -1017,3 +1017,65 @@ table#about td:first-child {
 .error_msg {
     color: red;
 }
+
+.modal {
+    border: none !important;
+}
+
+.modal-dialog {
+    border: 10px solid #f37155;
+    padding: 30px;
+}
+
+.modal-header h4 {
+    text-align: center;
+}
+
+#form-callback {
+    display: table;
+}
+
+#form-callback .row {
+    display: table-row;
+}
+
+.left-cell, .right-cell {
+    display: table-cell;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.left-cell {
+    white-space: nowrap;
+    padding-right: 0;
+}
+
+#form-callback .row textarea, #form-callback .row input {
+    width: 100%;
+}
+
+.captcha-warap img {
+    border: 1px solid #ddd;
+}
+
+.captcha-warap {
+    float: left;
+    width: 50%;
+}
+
+.captcha-input {
+    float: right;
+    width: 50%;
+}
+
+.right-cell {
+}
+
+#callback {
+    display: block;
+    width: 168px;
+    height: 44px;
+    background: url(../img/callback.png);
+    border: none;
+    outline: none;
+}
